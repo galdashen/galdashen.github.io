@@ -12,7 +12,7 @@ sidebar_position: 1
 
 ### 方法一：暴力解法
 
-```
+```java
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         int n = nums.length;
