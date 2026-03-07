@@ -12,6 +12,8 @@ sidebar_position: 1
 
 ### 方法一：暴力解法
 
+两重 `for` 循环对数组暴力遍历，检查每个情况的和是否为 `target`。
+
 ```java
 class Solution {
     public int[] twoSum(int[] nums, int target) {
@@ -27,3 +29,7 @@ class Solution {
     }
 }
 ```
+
+两重 `for` 循环，时间复杂度为 $ O(N^2) $。没有用到额外空间，空间复杂度为 $ O(1) $。
+
+### 方法二：哈希表

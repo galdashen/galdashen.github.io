@@ -1,6 +1,8 @@
 import { themes as prismThemes } from "prism-react-renderer";
+import rehypeKatex from "rehype-katex";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+import remarkMath from "remark-math";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -28,6 +30,13 @@ const config: Config = {
   deploymentBranch: "gh-pages",
 
   onBrokenLinks: "throw",
+
+  stylesheets: [
+    {
+      href: "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css",
+      type: "text/css",
+    },
+  ],
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -72,6 +81,8 @@ const config: Config = {
         path: "computer-science",
         routeBasePath: "computer-science",
         sidebarPath: "./sidebarsComputerScience.ts",
+        remarkPlugins: [remarkMath],
+        rehypePlugins: [rehypeKatex],
       },
     ],
   ],
