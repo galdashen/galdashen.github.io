@@ -18,26 +18,6 @@ import TabItem from '@theme/TabItem';
 两重 `for` 循环遍历数组，检查每对整数的和是否为 `target`。
 
 <Tabs groupId="solution1">
-<TabItem value="cpp" label="C++" default>
-
-```cpp
-class Solution {
-public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        int n = nums.size();
-        for (int i = 0; i < n; ++i) {
-            for (int j = i + 1; j < n; ++j) {
-                if (nums[i] + nums[j] == target) {
-                    return {i, j};
-                }
-            }
-        }
-        return {};
-    }
-};
-```
-
-</TabItem>
 <TabItem value="java" label="Java">
 
 ```java
@@ -83,26 +63,6 @@ function twoSum(nums: number[], target: number): number[] {
 遍历一遍数组，遍历过程中把已知的数值和下标信息存在哈希表里。每遍历一个数就把该数的值 `nums[i]` 还有下标 `i` 存到哈希表中，可以先通过哈希表检查先前的数中是否有等于 `target - nums[i]` 的，如果有的话就说明找到了。
 
 <Tabs groupId="solution2">
-<TabItem value="cpp" label="C++" default>
-
-```cpp
-class Solution {
-public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> hashtable;
-        for (int i = 0; i < nums.size(); ++i) {
-            auto it = hashtable.find(target - nums[i]);
-            if (it != hashtable.end()) {
-                return {it->second, i};
-            }
-            hashtable[nums[i]] = i;
-        }
-        return {};
-    }
-};
-```
-
-</TabItem>
 <TabItem value="java" label="Java">
 
 ```java
