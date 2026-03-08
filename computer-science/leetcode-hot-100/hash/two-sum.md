@@ -37,23 +37,6 @@ class Solution {
 ```
 
 </TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript
-function twoSum(nums: number[], target: number): number[] {
-  const n = nums.length;
-  for (let i = 0; i < n; i++) {
-    for (let j = i + 1; j < n; j++) {
-      if (nums[i] + nums[j] === target) {
-        return [i, j];
-      }
-    }
-  }
-  return [];
-}
-```
-
-</TabItem>
 </Tabs>
 
 两重 `for` 循环，时间复杂度为 $O(N^2)$。没有用到额外空间，空间复杂度为 $O(1)$。
@@ -77,23 +60,6 @@ class Solution {
         }
         return new int[0];
     }
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript
-function twoSum(nums: number[], target: number): number[] {
-  const map = new Map<number, number>();
-  for (let i = 0; i < nums.length; i++) {
-    const remain = target - nums[i];
-    if (map.has(remain)) {
-      return [map.get(remain)!, i];
-    }
-    map.set(nums[i], i);
-  }
-  return [];
 }
 ```
 
