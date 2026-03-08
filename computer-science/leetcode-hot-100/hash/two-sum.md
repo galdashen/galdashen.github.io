@@ -2,9 +2,6 @@
 sidebar_position: 1
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # 1. 两数之和
 
 [原题链接](https://leetcode.cn/problems/two-sum/description/?envType=study-plan-v2&envId=top-100-liked)
@@ -17,10 +14,7 @@ import TabItem from '@theme/TabItem';
 
 两重 `for` 循环遍历数组，检查每对整数的和是否为 `target`。
 
-<Tabs groupId="solution1">
-<TabItem value="java" label="Java">
-
-```java
+```java title="Java"
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         int n = nums.length;
@@ -36,19 +30,13 @@ class Solution {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 两重 `for` 循环，时间复杂度为 $O(N^2)$。没有用到额外空间，空间复杂度为 $O(1)$。
 
 ### 方法二：哈希表
 
 遍历一遍数组，遍历过程中把已知的数值和下标信息存在哈希表里。每遍历一个数就把该数的值 `nums[i]` 还有下标 `i` 存到哈希表中，可以先通过哈希表检查先前的数中是否有等于 `target - nums[i]` 的，如果有的话就说明找到了。
 
-<Tabs groupId="solution2">
-<TabItem value="java" label="Java">
-
-```java
+```java title="Java"
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> hashtable = new HashMap<Integer, Integer>();
@@ -62,8 +50,5 @@ class Solution {
     }
 }
 ```
-
-</TabItem>
-</Tabs>
 
 只遍历了一遍数组，时间复杂度为 $O(N)$。哈希表要储存数组中的元素，空间复杂度为 $O(N)$。
