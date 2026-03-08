@@ -2,9 +2,12 @@
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # 1. 两数之和
 
-[原题链接](https://leetcode.cn/problems/two-sum/?envType=study-plan-v2&envId=top-100-liked)
+[原题链接](https://leetcode.cn/problems/two-sum/description/?envType=study-plan-v2&envId=top-100-liked)
 
 给定一个整数数组 `int[] nums` 和一个目标整数 `int target`，需要在 `nums` 中找到两个下标不同的整数，使得它们的和为 `target`，返回这两个整数的下标 `int[]`。
 
@@ -13,6 +16,29 @@ sidebar_position: 1
 ### 方法一：暴力解法
 
 两重 `for` 循环遍历数组，检查每对整数的和是否为 `target`。
+
+<Tabs groupId="solution1">
+<TabItem value="cpp" label="C++" default>
+
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (nums[i] + nums[j] == target) {
+                    return {i, j};
+                }
+            }
+        }
+        return {};
+    }
+};
+```
+
+</TabItem>
+<TabItem value="java" label="Java">
 
 ```java
 class Solution {
@@ -30,11 +56,54 @@ class Solution {
 }
 ```
 
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript
+function twoSum(nums: number[], target: number): number[] {
+  const n = nums.length;
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      if (nums[i] + nums[j] === target) {
+        return [i, j];
+      }
+    }
+  }
+  return [];
+}
+```
+
+</TabItem>
+</Tabs>
+
 两重 `for` 循环，时间复杂度为 $O(N^2)$。没有用到额外空间，空间复杂度为 $O(1)$。
 
 ### 方法二：哈希表
 
 遍历一遍数组，遍历过程中把已知的数值和下标信息存在哈希表里。每遍历一个数就把该数的值 `nums[i]` 还有下标 `i` 存到哈希表中，可以先通过哈希表检查先前的数中是否有等于 `target - nums[i]` 的，如果有的话就说明找到了。
+
+<Tabs groupId="solution2">
+<TabItem value="cpp" label="C++" default>
+
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> hashtable;
+        for (int i = 0; i < nums.size(); ++i) {
+            auto it = hashtable.find(target - nums[i]);
+            if (it != hashtable.end()) {
+                return {it->second, i};
+            }
+            hashtable[nums[i]] = i;
+        }
+        return {};
+    }
+};
+```
+
+</TabItem>
+<TabItem value="java" label="Java">
 
 ```java
 class Solution {
@@ -50,5 +119,25 @@ class Solution {
     }
 }
 ```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript
+function twoSum(nums: number[], target: number): number[] {
+  const map = new Map<number, number>();
+  for (let i = 0; i < nums.length; i++) {
+    const remain = target - nums[i];
+    if (map.has(remain)) {
+      return [map.get(remain)!, i];
+    }
+    map.set(nums[i], i);
+  }
+  return [];
+}
+```
+
+</TabItem>
+</Tabs>
 
 只遍历了一遍数组，时间复杂度为 $O(N)$。哈希表要储存数组中的元素，空间复杂度为 $O(N)$。
