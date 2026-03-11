@@ -6,7 +6,7 @@ sidebar_position: 2
 
 [原题链接](https://leetcode.cn/problems/container-with-most-water/description/?envType=study-plan-v2&envId=top-100-liked)
 
-给定一个整数数组 `int[] height` 代表容器壁高度，从中找出一对 `i, j`，使得它们能装的水 `abs(i - j) * max(height[i], height[j])` 最多。返回最大水量 `int`。
+给定一个整数数组 `int[] height` 代表容器壁高度，从中找出一对 `i, j`，使得它们能装的水 `abs(i - j) * min(height[i], height[j])` 最多。返回最大水量 `int`。
 
 ### 题解：双指针
 
