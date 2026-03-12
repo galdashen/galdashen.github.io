@@ -6,7 +6,7 @@ sidebar_position: 3
 
 [原题链接](https://leetcode.cn/problems/3sum/description/?envType=study-plan-v2&envId=top-100-liked)
 
-给定一个数组 `int[] nums`，寻找三个互不相同的下标 `i, j, k` 使得 `nums[i] + nums[j] + nums[k] == 0`。找到所有和为 `0` 且不重复的三元组 `[nums[i], nums[j], nums[k]]`，并返回它们 `List<List<Integer>>`。
+给定一个数组 `int[] nums`，寻找三个互不相同的下标 `i, j, k` 使得 `nums[i] + nums[j] + nums[k] == 0`。找到所有和为 `0` 且不重复的三元组 `[nums[i], nums[j], nums[k]]`，并返回 `List<List<Integer>>`。
 
 输出的顺序和三元组的顺序并不重要。答案中不可以包含重复的三元组。
 
