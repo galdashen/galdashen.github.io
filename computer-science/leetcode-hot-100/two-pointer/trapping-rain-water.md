@@ -83,7 +83,7 @@ class Solution {
 
 ### 方法三：双指针
 
-类似于方法一，同样考虑 `leftMax` 以及 `rightMax`，但是不设数组，用双指针法优化空间复杂度。
+类似于方法一，同样考虑 `leftMax` 以及 `rightMax`，但是不设数组，用双指针法优化空间复杂度。注意判断 `if (height[left] < height[right])` 后，每次都移动较短的一边，因此 `height[left]` 和 `height[right]` 有一个是当前已遍历柱子中的最高的，因此也蕴含了 `leftMax` 与 `rightMax` 的大小关系。最外层的 `while (left < right)` 循环也不需要取等，因为当 `left == right` 时，此柱子是全局最高的，上面不会有雨水。
 
 ```java title="Java"
 class Solution {
