@@ -33,4 +33,4 @@ class Solution {
 
 时间复杂度：$O(n)$，左指针和右指针分别会遍历整个字符串一次。
 
-空间复杂度：$O(\lvert\Sigma\rvert)$，`String s` 中的不同字符会存到哈希表里。
+空间复杂度：$O(\lvert\Sigma\rvert)$，`String s` 中的不同字符会存到哈希表里，其中 $\lvert\Sigma\rvert$ 是不同字符的总数。
