@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # 560. 和为 K 的子数组
 
+[原题链接](https://leetcode.cn/problems/subarray-sum-equals-k/description/?envType=study-plan-v2&envId=top-100-liked)
+
 给你一个整数数组 `int[] nums` 和一个整数 `int k`，请你统计并返回该数组中和为 `k` 的子数组的个数。
 
 子数组是数组中元素的连续非空序列。
