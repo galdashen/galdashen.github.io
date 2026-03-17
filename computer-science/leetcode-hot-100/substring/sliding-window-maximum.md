@@ -71,7 +71,7 @@ class Solution {
                 deque.pollLast();
             }
             deque.offerLast(i);
-            while (deque.peekFirst() <= i - k) {
+            if (deque.peekFirst() == i - k) {
                 deque.pollFirst();
             }
             ans[i - k + 1] = nums[deque.peekFirst()];
