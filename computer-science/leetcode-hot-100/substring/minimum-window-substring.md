@@ -12,57 +12,40 @@ sidebar_position: 3
 
 ### 解法：滑动窗口
 
-维护一个滑动窗口，统计窗口内中各字符的出现次数是否覆盖了 `t`，即是否大于等于 `t` 中各字符的出现次数。窗口右边界往右走，然后判断是否已覆盖，若覆盖则左边界不断往右走直至刚好不覆盖，求出窗口长度。
+维护一个滑动窗口，统计窗口内中各字符的出现次数是否覆盖了 `t`，即是否大于等于 `t` 中各字符的出现次数。窗口右边界往右走，然后判断是否已覆盖，若覆盖则左边界不断往右走直至不覆盖，求出窗口长度。（可以用一个 `int differ` 表示还差几个字符未覆盖）
 
 ```java title="Java"
 class Solution {
-    Map<Character, Integer> ori = new HashMap<Character, Integer>();
-    Map<Character, Integer> cnt = new HashMap<Character, Integer>();
-
     public String minWindow(String s, String t) {
-        int tLen = t.length();
+        int[] sCount = new int[128];
+        int[] tCount = new int[128];
+        int sLen = s.length(), tLen = t.length();
+        int differ = 0;
+        int left = 0, right = -1;
+        int ansL = -1, ansR = sLen;
         for (int i = 0; i < tLen; i++) {
-            char c = t.charAt(i);
-            ori.put(c, ori.getOrDefault(c, 0) + 1);
+            tCount[t.charAt(i)]++;
         }
-        int l = 0, r = -1;
-        int len = Integer.MAX_VALUE, ansL = -1, ansR = -1;
-        int sLen = s.length();
-        while (r < sLen) {
-            ++r;
-            if (r < sLen && ori.containsKey(s.charAt(r))) {
-                cnt.put(s.charAt(r), cnt.getOrDefault(s.charAt(r), 0) + 1);
-            }
-            while (check() && l <= r) {
-                if (r - l + 1 < len) {
-                    len = r - l + 1;
-                    ansL = l;
-                    ansR = l + len;
+        for (int i = 0; i < 128; i++) {
+            if (tCount[i] > 0) differ++;
+        }
+        for (right = 0; right < sLen; right++) {
+            char c = s.charAt(right);
+            if (++sCount[c] == tCount[c]) differ--;
+            while (differ == 0) {
+                if (right - left < ansR - ansL) {
+                    ansL = left;
+                    ansR = right;
                 }
-                if (ori.containsKey(s.charAt(l))) {
-                    cnt.put(s.charAt(l), cnt.getOrDefault(s.charAt(l), 0) - 1);
-                }
-                ++l;
+                char d = s.charAt(left++);
+                if (sCount[d]-- == tCount[d]) differ++;
             }
         }
-        return ansL == -1 ? "" : s.substring(ansL, ansR);
-    }
-
-    public boolean check() {
-        Iterator iter = ori.entrySet().iterator();
-        while (iter.hasNext()) {
-            Map.Entry entry = (Map.Entry) iter.next();
-            Character key = (Character) entry.getKey();
-            Integer val = (Integer) entry.getValue();
-            if (cnt.getOrDefault(key, 0) < val) {
-                return false;
-            }
-        }
-        return true;
+        return ansL == -1 ? "" : s.substring(ansL, ansR + 1);
     }
 }
 ```
 
-时间复杂度：$O(C \cdot \lvert s\rvert + \lvert t \rvert)$，其中 $C$ 为字符集大小。
+时间复杂度：$O(\lvert s\rvert + \lvert t \rvert)$。
 
-空间复杂度：$O(C)$。
+空间复杂度：$O(1)$，开了两个 `int[128]`。
