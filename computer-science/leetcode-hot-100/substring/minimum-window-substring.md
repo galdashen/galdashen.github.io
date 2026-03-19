@@ -48,4 +48,4 @@ class Solution {
 
 时间复杂度：$O(\lvert s\rvert + \lvert t \rvert)$。
 
-空间复杂度：$O(1)$，开了两个 `int[128]`。
+空间复杂度：$O(C)$，其中 $C$ 是字符集大小。
