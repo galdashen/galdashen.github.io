@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # 3. 无重复字符的最长子串
 
-[原题链接](https://leetcode.cn/problems/longest-substring-without-repeating-characters/description/?envType=study-plan-v2&envId=top-100-liked)
+[原题链接](https://leetcode.cn/problems/longest-substring-without-repeating-characters/description/?envType=study-plan-v2&envId=top-100-liked) [官解链接](https://leetcode.cn/problems/longest-substring-without-repeating-characters/solutions/227999/wu-zhong-fu-zi-fu-de-zui-chang-zi-chuan-by-leetc-2/?envType=study-plan-v2&envId=top-100-liked)
 
 给定一个字符串 `String s`，请你找出其中不含有重复字符的最长<abbr title="连续的子字符串">子串</abbr>的长度。
 

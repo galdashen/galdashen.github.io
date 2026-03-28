@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # 15. 三数之和
 
-[原题链接](https://leetcode.cn/problems/3sum/description/?envType=study-plan-v2&envId=top-100-liked)
+[原题链接](https://leetcode.cn/problems/3sum/description/?envType=study-plan-v2&envId=top-100-liked) [官解链接](https://leetcode.cn/problems/3sum/solutions/284681/san-shu-zhi-he-by-leetcode-solution/?envType=study-plan-v2&envId=top-100-liked)
 
 给定一个数组 `int[] nums`，寻找三个互不相同的下标 `i, j, k` 使得 `nums[i] + nums[j] + nums[k] == 0`。找到所有和为 `0` 且不重复的三元组 `[nums[i], nums[j], nums[k]]`，返回 `List<List<Integer>>`。
 

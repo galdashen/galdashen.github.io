@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # 49. 字母异位词分组
 
-[原题链接](https://leetcode.cn/problems/group-anagrams/description/?envType=study-plan-v2&envId=top-100-liked)
+[原题链接](https://leetcode.cn/problems/group-anagrams/description/?envType=study-plan-v2&envId=top-100-liked) [官解链接](https://leetcode.cn/problems/group-anagrams/solutions/520469/zi-mu-yi-wei-ci-fen-zu-by-leetcode-solut-gyoc/?envType=study-plan-v2&envId=top-100-liked)
 
 给定一个字符串数组 `String[] strs`，将 <abbr title="由相同字母，且每个字母出现次数相同，重新排列组合而成的不同单词">字母异位词</abbr> 组合在一起，返回组合后的结果 `List<List<String>>`。
 

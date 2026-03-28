@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # 56. 合并区间
 
-[原题链接](https://leetcode.cn/problems/merge-intervals/description/?envType=study-plan-v2&envId=top-100-liked)
+[原题链接](https://leetcode.cn/problems/merge-intervals/description/?envType=study-plan-v2&envId=top-100-liked) [官解链接](https://leetcode.cn/problems/merge-intervals/solutions/203562/he-bing-qu-jian-by-leetcode-solution/?envType=study-plan-v2&envId=top-100-liked)
 
 给定若干个区间 `int[][] intervals`，其中单个区间为 `intervals[i] = [start_i, end_i]`，请合并所有的重叠区间，然后返回合并后的结果。（该结果内的区间互不重叠且刚好覆盖原来的所有区间）
 

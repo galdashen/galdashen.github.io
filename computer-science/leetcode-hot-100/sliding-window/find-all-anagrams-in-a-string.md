@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # 438. 找到字符串中所有字母异位词
 
-[原题链接](https://leetcode.cn/problems/find-all-anagrams-in-a-string/description/?envType=study-plan-v2&envId=top-100-liked)
+[原题链接](https://leetcode.cn/problems/find-all-anagrams-in-a-string/description/?envType=study-plan-v2&envId=top-100-liked) [官解链接](https://leetcode.cn/problems/find-all-anagrams-in-a-string/solutions/1123971/zhao-dao-zi-fu-chuan-zhong-suo-you-zi-mu-xzin/?envType=study-plan-v2&envId=top-100-liked)
 
 给定两个字符串 `String s` 和 `String p`，找到 `s` 中所有 `p` 的<abbr title="由相同字母，且每个字母出现次数相同，重新排列组合而成的不同单词">异位词</abbr>的<abbr title="连续的子字符串">子串</abbr>，返回这些子串的起始索引 `List<Integer>`。
 

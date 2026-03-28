@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Iterable
 
 
-DEFAULT_REQUIRED_KEYWORDS = ["原题链接", "时间复杂度", "空间复杂度"]
+DEFAULT_REQUIRED_KEYWORDS = ["原题链接", "官解链接", "时间复杂度", "空间复杂度"]
 DEFAULT_ANY_OF_KEYWORDS = ["### 解法", "### 方法"]
 
 

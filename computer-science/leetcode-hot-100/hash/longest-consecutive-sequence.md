@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # 128. 最长连续序列
 
-[原题链接](https://leetcode.cn/problems/longest-consecutive-sequence/description/?envType=study-plan-v2&envId=top-100-liked)
+[原题链接](https://leetcode.cn/problems/longest-consecutive-sequence/description/?envType=study-plan-v2&envId=top-100-liked) [官解链接](https://leetcode.cn/problems/longest-consecutive-sequence/solutions/276931/zui-chang-lian-xu-xu-lie-by-leetcode-solution/?envType=study-plan-v2&envId=top-100-liked)
 
 给定一个未排序的整数数组 `int[] nums`，找出数组中数字可以组成连续整数的最长长度。
 

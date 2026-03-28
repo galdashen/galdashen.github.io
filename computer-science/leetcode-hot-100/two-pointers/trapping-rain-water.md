@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # 42. 接雨水
 
-[原题链接](https://leetcode.cn/problems/trapping-rain-water/description/?envType=study-plan-v2&envId=top-100-liked)
+[原题链接](https://leetcode.cn/problems/trapping-rain-water/description/?envType=study-plan-v2&envId=top-100-liked) [官解链接](https://leetcode.cn/problems/trapping-rain-water/solutions/692342/jie-yu-shui-by-leetcode-solution-tuvc/?envType=study-plan-v2&envId=top-100-liked)
 
 给定一个数组 `int[] height` 代表 `n` 个宽度为 `1` 的柱子的高度，柱子挨在一起的，计算下雨后能接多少雨水，返回雨水总量 `int`。
 
