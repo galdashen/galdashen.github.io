@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # 53. 最大子数组和
 
-[原题链接](https://leetcode.cn/problems/maximum-subarray/description/?envType=study-plan-v2&envId=top-100-liked) [官解链接](https://leetcode.cn/problems/maximum-subarray/solutions/228009/zui-da-zi-xu-he-by-leetcode-solution/?envType=study-plan-v2&envId=top-100-liked)
+[原题链接](https://leetcode.cn/problems/maximum-subarray/description/?envType=study-plan-v2&envId=top-100-liked)
 
 给定一个整数数组 `nums`，找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
 

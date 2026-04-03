@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # 11. 盛最多水的容器
 
-[原题链接](https://leetcode.cn/problems/container-with-most-water/description/?envType=study-plan-v2&envId=top-100-liked) [官解链接](https://leetcode.cn/problems/container-with-most-water/solutions/207215/sheng-zui-duo-shui-de-rong-qi-by-leetcode-solution/?envType=study-plan-v2&envId=top-100-liked)
+[原题链接](https://leetcode.cn/problems/container-with-most-water/description/?envType=study-plan-v2&envId=top-100-liked)
 
 给定一个整数数组 `int[] height` 代表容器壁高度，从中找出一对 `i, j`，使得它们能装的水 `abs(i - j) * min(height[i], height[j])` 最多。返回最大水量 `int`。
 

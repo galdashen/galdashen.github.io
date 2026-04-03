@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # 76. 最小覆盖子串
 
-[原题链接](https://leetcode.cn/problems/minimum-window-substring/description/?envType=study-plan-v2&envId=top-100-liked) [官解链接](https://leetcode.cn/problems/minimum-window-substring/solutions/257359/zui-xiao-fu-gai-zi-chuan-by-leetcode-solution/?envType=study-plan-v2&envId=top-100-liked)
+[原题链接](https://leetcode.cn/problems/minimum-window-substring/description/?envType=study-plan-v2&envId=top-100-liked)
 
 给定两个字符串 `s` 和 `t`，找到 `s` 中的最短<abbr title="字符串中连续的非空字符序列">子串</abbr>，使得该子串包含 `t` 中的每一个字符（包括重复字符）。如果没有这样的子串，返回空字符串 `""`。
 

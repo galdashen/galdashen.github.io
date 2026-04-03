@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # 560. 和为 K 的子数组
 
-[原题链接](https://leetcode.cn/problems/subarray-sum-equals-k/description/?envType=study-plan-v2&envId=top-100-liked) [官解链接](https://leetcode.cn/problems/subarray-sum-equals-k/solutions/238572/he-wei-kde-zi-shu-zu-by-leetcode-solution/?envType=study-plan-v2&envId=top-100-liked)
+[原题链接](https://leetcode.cn/problems/subarray-sum-equals-k/description/?envType=study-plan-v2&envId=top-100-liked)
 
 给你一个整数数组 `int[] nums` 和一个整数 `int k`，请你统计并返回该数组中和为 `k` 的子数组的个数。
 

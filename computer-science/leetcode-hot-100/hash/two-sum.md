@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # 1. 两数之和
 
-[原题链接](https://leetcode.cn/problems/two-sum/description/?envType=study-plan-v2&envId=top-100-liked) [官解链接](https://leetcode.cn/problems/two-sum/solutions/434597/liang-shu-zhi-he-by-leetcode-solution/?envType=study-plan-v2&envId=top-100-liked)
+[原题链接](https://leetcode.cn/problems/two-sum/description/?envType=study-plan-v2&envId=top-100-liked)
 
 给定一个整数数组 `int[] nums` 和一个目标整数 `int target`，需要在 `nums` 中找到两个下标不同的整数，使得它们的和为 `target`，返回这两个整数的下标 `int[]`。
 

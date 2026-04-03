@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # 48. 旋转图像
 
-[原题链接](https://leetcode.cn/problems/rotate-image/description/?envType=study-plan-v2&envId=top-100-liked) [官解链接](https://leetcode.cn/problems/rotate-image/solutions/526980/xuan-zhuan-tu-xiang-by-leetcode-solution-vu3m/?envType=study-plan-v2&envId=top-100-liked)
+[原题链接](https://leetcode.cn/problems/rotate-image/description/?envType=study-plan-v2&envId=top-100-liked)
 
 给定一个 `n × n` 的二维矩阵 `matrix` 表示一个图像。请你将图像顺时针旋转 90 度。
 
