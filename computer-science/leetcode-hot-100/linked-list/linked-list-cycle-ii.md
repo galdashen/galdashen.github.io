@@ -40,6 +40,8 @@ public class Solution {
 
 记相遇时慢指针的总路程是 $s$，则快指针的总路程是 $2s$。分析可知 $s$ 是环长的整数倍，将慢指针的路径按环长进行等分，取最后一份，最后一份未入环的长度等于环中剩余部分的长度。
 
+注意需要将链表结点视为线段端点，将链表指针视为线段单位长度，于是 `slow` 和 `fast` 初始位置都在 `head`。
+
 ```java title="Java"
 public class Solution {
     public ListNode detectCycle(ListNode head) {
