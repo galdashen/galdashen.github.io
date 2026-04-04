@@ -45,27 +45,22 @@ public class Solution {
 ```java title="Java"
 public class Solution {
     public ListNode detectCycle(ListNode head) {
-        if (head == null) {
-            return null;
-        }
-        ListNode slow = head, fast = head;
-        while (fast != null) {
-            slow = slow.next;
-            if (fast.next != null) {
-                fast = fast.next.next;
-            } else {
+        if (head == null || head.next == null) return null;
+        ListNode slow = head.next;
+        ListNode fast = head.next.next;
+        while (slow != fast) {
+            if (fast == null || fast.next == null) {
                 return null;
             }
-            if (fast == slow) {
-                ListNode ptr = head;
-                while (ptr != slow) {
-                    ptr = ptr.next;
-                    slow = slow.next;
-                }
-                return ptr;
-            }
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        return null;
+        ListNode p = head;
+        while (p != slow) {
+            p = p.next;
+            slow = slow.next;
+        }
+        return p;
     }
 }
 ```
