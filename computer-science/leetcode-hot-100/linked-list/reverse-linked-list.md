@@ -10,8 +10,6 @@ sidebar_position: 2
 
 ### 方法一：迭代
 
-迭代。
-
 ```java title="Java"
 class Solution {
     public ListNode reverseList(ListNode head) {

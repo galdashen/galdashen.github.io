@@ -10,8 +10,6 @@ sidebar_position: 4
 
 ### 方法一：哈希表
 
-哈希表。
-
 ```java title="Java"
 public class Solution {
     public boolean hasCycle(ListNode head) {
@@ -32,8 +30,6 @@ public class Solution {
 空间复杂度：$O(n)$。
 
 ### 方法二：快慢指针
-
-快慢指针。
 
 ```java title="Java"
 public class Solution {

@@ -10,8 +10,6 @@ sidebar_position: 1
 
 ### 方法一：哈希集合
 
-哈希。
-
 ```java title="Java"
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
@@ -38,8 +36,6 @@ public class Solution {
 空间复杂度：$O(m)$。
 
 ### 方法二：双指针
-
-双指针。
 
 ```java title="Java"
 public class Solution {

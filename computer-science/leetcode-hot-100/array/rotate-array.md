@@ -64,8 +64,6 @@ class Solution {
 
 ### 方法三：数组翻转
 
-翻转。
-
 ```java title="Java"
 class Solution {
     public void rotate(int[] nums, int k) {

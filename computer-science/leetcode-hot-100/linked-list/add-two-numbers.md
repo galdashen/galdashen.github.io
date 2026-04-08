@@ -12,8 +12,6 @@ sidebar_position: 7
 
 ### 解法：模拟
 
-模拟。
-
 ```java title="Java"
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {

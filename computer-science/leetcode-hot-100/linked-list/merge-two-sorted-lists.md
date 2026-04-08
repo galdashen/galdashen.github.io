@@ -10,8 +10,6 @@ sidebar_position: 6
 
 ### 方法一：递归
 
-递归。
-
 ```java title="Java"
 class Solution {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {

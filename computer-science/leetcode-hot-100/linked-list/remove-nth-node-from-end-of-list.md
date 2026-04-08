@@ -10,8 +10,6 @@ sidebar_position: 8
 
 ### 方法一：计算链表长度
 
-计算链表长度。
-
 ```java title="Java"
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
@@ -43,8 +41,6 @@ class Solution {
 
 ### 方法二：栈
 
-栈。
-
 ```java title="Java"
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
@@ -71,8 +67,6 @@ class Solution {
 空间复杂度：$O(L)$。
 
 ### 方法三：双指针
-
-双指针。
 
 ```java title="Java"
 class Solution {

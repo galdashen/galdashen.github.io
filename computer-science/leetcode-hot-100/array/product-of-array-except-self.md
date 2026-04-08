@@ -14,8 +14,6 @@ sidebar_position: 4
 
 ### 方法一：左右乘积列表
 
-见代码。
-
 ```java title="Java"
 class Solution {
     public int[] productExceptSelf(int[] nums) {

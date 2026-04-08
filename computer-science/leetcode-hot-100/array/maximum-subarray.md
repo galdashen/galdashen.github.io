@@ -31,8 +31,6 @@ class Solution {
 
 ### 方法二：分治
 
-分治。
-
 ```java title="Java"
 class Solution {
     public class Status {

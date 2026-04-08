@@ -13,8 +13,6 @@ sidebar_position: 4
 
 ### 方法一：直接查找
 
-暴力解法。
-
 ```java title="Java"
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
@@ -35,8 +33,6 @@ class Solution {
 空间复杂度：$O(1)$。
 
 ### 方法二：二分查找
-
-二分查找。
 
 ```java title="Java"
 class Solution {

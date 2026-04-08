@@ -10,8 +10,6 @@ sidebar_position: 5
 
 ### 方法一：哈希表
 
-哈希。
-
 ```java title="Java"
 public class Solution {
     public ListNode detectCycle(ListNode head) {
