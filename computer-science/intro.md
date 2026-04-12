@@ -66,6 +66,76 @@ int main() {
 
 ### 3. 指针与内存分配
 
+C/C++ 常用的数据类型包括整数 `int`，双精度浮点数 `double`，字符 `char` 等，这些数据类型都是以二进制的形式储存在内存里的，一个 `int` 占 4 个字节，一个 `double` 占 8 个字节，一个 `char` 占 1 个字节，所有的数据都是整数个字节倍的大小，计算机通常按字节给数据编址。可以把内存看成是一个字节一个字节的二进制数据按顺序排好，从 0 开始编址，通过地址就能找到数据在内存里的位置，从而读取它。我们可以手动设置一个指针，指定它的数据类型，然后给它分配内存，这样可以在内存里创建一个数据，还可以通过把分配给该指针的内存设置为单个该数据类型大小的整数倍，创建一个数组。
+
+接下来将展示如何用指针和内存分配创建数组 `[1,2,...,n]`
+
+```cpp title="C++"
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int *a = new int[n]; // 分配大小为 n 个整数的内存，从而创建一个数组
+    for (int i = 0; i < n; i++) {
+        a[i] = i + 1;
+    }
+    for (int i = 0; i < n; i++) {
+        cout << a[i] << " ";
+    }
+    cout << endl;
+    delete[] a; // 手动释放掉分配的内存，防止内存泄漏
+    return 0;
+}
+```
+
+接下来将展示如何用指针和内存分配创建如下矩阵
+
+$$
+\begin{pmatrix}
+1&2&3&4\\
+5&6&7&8\\
+9&10&11&12\\
+\end{pmatrix}
+$$
+
+首先把该矩阵拆成三个数组，分别为 `[1,2,3,4],[5,6,7,8],[9,10,11,12]`，分别存到变量 `int *a, *b, *c` 里
+
+然后创建矩阵变量，矩阵变量记为 `int **matrix`，类型是 `int**` 代表 `matrix` 是指针 `int*` 的数组，我们要做的是让 `matrix = [a,b,c]`。例如之后如果要访问矩阵的第 i 行第 j 个元素，就去访问 `matrix` 的第 i 个元素的第 j 个元素即可，示例代码如下
+
+```cpp title="C++"
+#include <iostream>
+using namespace std;
+
+int main() {
+    int *a, *b, *c;
+    a = new int[4];
+    b = new int[4];
+    c = new int[4];
+    for (int i = 0; i < 4; i++) {
+        a[i] = i + 1;
+        b[i] = i + 5;
+        c[i] = i + 9;
+    }
+    int **matrix = new int *[3];
+    matrix[0] = a;
+    matrix[1] = b;
+    matrix[2] = c;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 4; j++) {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+    delete[] a;
+    delete[] b;
+    delete[] c;
+    delete[] matrix;
+    return 0;
+}
+```
+
 ## 二、数据结构
 
 ### 1. 链表
