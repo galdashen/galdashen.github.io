@@ -292,9 +292,9 @@ TreeNode *buildSampleTree() {
     // 构建示例二叉树：
     //         10
     //       /    \
-	//      5      15
+    //      5      15
     //     / \    / \
-	//    3   7  12  18
+    //    3   7  12  18
     TreeNode *n3 = new TreeNode(3);
     TreeNode *n7 = new TreeNode(7);
     TreeNode *n12 = new TreeNode(12);
