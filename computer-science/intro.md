@@ -157,7 +157,7 @@ int main() {
 3. 在第 `i` 个位置插入节点 `insertAt`
 4. 删除第 `i` 个位置的节点 `eraseAt`
 
-以下是示例代码，节点编号 `index` 从 `1` 开始
+以下是示例代码（为了简洁，该代码存在索引越界等缺陷），节点编号 `index` 从 `1` 开始
 
 ```cpp title="C++"
 #include <iostream>
