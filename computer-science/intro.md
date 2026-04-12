@@ -269,4 +269,136 @@ int main() {
 
 ### 2. 树
 
+以下代码展示了二叉树的前中后序遍历以及层序遍历
+
+```cpp title="C++"
+#include <iostream>
+#include <queue>
+#include <vector>
+
+using namespace std;
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right)
+        : val(x), left(left), right(right) {}
+};
+
+TreeNode *buildSampleTree() {
+    // 构建示例二叉树：
+    //         10
+    //       /    \
+	//      5      15
+    //     / \    / \
+	//    3   7  12  18
+    TreeNode *n3 = new TreeNode(3);
+    TreeNode *n7 = new TreeNode(7);
+    TreeNode *n12 = new TreeNode(12);
+    TreeNode *n18 = new TreeNode(18);
+    TreeNode *n5 = new TreeNode(5, n3, n7);
+    TreeNode *n15 = new TreeNode(15, n12, n18);
+    TreeNode *root = new TreeNode(10, n5, n15);
+    return root;
+}
+
+void preorderTraversal(TreeNode *root, vector<int> &order) {
+    if (root == nullptr) {
+        return;
+    }
+    order.push_back(root->val);
+    preorderTraversal(root->left, order);
+    preorderTraversal(root->right, order);
+}
+
+void inorderTraversal(TreeNode *root, vector<int> &order) {
+    if (root == nullptr) {
+        return;
+    }
+    inorderTraversal(root->left, order);
+    order.push_back(root->val);
+    inorderTraversal(root->right, order);
+}
+
+void postorderTraversal(TreeNode *root, vector<int> &order) {
+    if (root == nullptr) {
+        return;
+    }
+    postorderTraversal(root->left, order);
+    postorderTraversal(root->right, order);
+    order.push_back(root->val);
+}
+
+vector<int> levelOrderTraversal(TreeNode *root) {
+    vector<int> order;
+    if (root == nullptr) {
+        return order;
+    }
+
+    queue<TreeNode *> q;
+    q.push(root);
+
+    while (!q.empty()) {
+        TreeNode *cur = q.front();
+        q.pop();
+        order.push_back(cur->val);
+        if (cur->left != nullptr) {
+            q.push(cur->left);
+        }
+        if (cur->right != nullptr) {
+            q.push(cur->right);
+        }
+    }
+
+    return order;
+}
+
+void printOrder(const vector<int> &order) {
+    for (size_t i = 0; i < order.size(); ++i) {
+        cout << order[i] << " ";
+    }
+    cout << "\n";
+}
+
+void deleteTree(TreeNode *root) {
+    if (root == nullptr) {
+        return;
+    }
+    deleteTree(root->left);
+    deleteTree(root->right);
+    delete root;
+}
+
+int main() {
+    TreeNode *root = buildSampleTree();
+
+    vector<int> preorder;
+    vector<int> inorder;
+    vector<int> postorder;
+
+    preorderTraversal(root, preorder);
+    inorderTraversal(root, inorder);
+    postorderTraversal(root, postorder);
+    vector<int> levelorder = levelOrderTraversal(root);
+
+    cout << "前序遍历: ";
+    printOrder(preorder);
+
+    cout << "中序遍历: ";
+    printOrder(inorder);
+
+    cout << "后序遍历: ";
+    printOrder(postorder);
+
+    cout << "层序遍历: ";
+    printOrder(levelorder);
+
+    deleteTree(root);
+    return 0;
+}
+```
+
 ### 3. 图
