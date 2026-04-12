@@ -66,7 +66,7 @@ int main() {
 
 ### 3. 指针与内存分配
 
-C/C++ 常用的数据类型包括整数 `int`，双精度浮点数 `double`，字符 `char` 等，这些数据类型都是以二进制的形式储存在内存里的，一个 `int` 占 4 个字节，一个 `double` 占 8 个字节，一个 `char` 占 1 个字节，所有的数据都是整数个字节倍的大小，计算机通常按字节给数据编址。可以把内存看成是一个字节一个字节的二进制数据按顺序排好，从 0 开始编址，通过地址就能找到数据在内存里的位置，从而读取它。我们可以手动设置一个指针，指定它的数据类型，然后给它分配内存，这样可以在内存里创建一个数据，还可以通过把分配给该指针的内存设置为单个该数据类型大小的整数倍，创建一个数组。
+C/C++ 常用的数据类型包括整数 `int`，双精度浮点数 `double`，字符 `char` 等，这些数据类型都是以二进制的形式储存在内存里的，一个 `int` 占 4 个字节，一个 `double` 占 8 个字节，一个 `char` 占 1 个字节，所有的数据都是整数个字节倍的大小，计算机通常按字节给数据编址。可以把内存看成是一个字节一个字节的二进制数据按顺序排好，从 0 开始编址，通过地址就能找到数据在内存里的位置，从而读取它。指针就相当于地址，指向了内存里的位置。我们可以手动设置一个指针，指定它的数据类型，然后给它分配内存，这样可以在内存里创建一个数据，还可以通过把分配给该指针的内存设置为单个该数据类型大小的整数倍，创建一个数组。需要注意的是，指针的指向是分配的内存的最开头的那一个点的位置。
 
 接下来将展示如何用指针和内存分配创建数组 `[1,2,...,n]`
 
@@ -102,7 +102,7 @@ $$
 
 首先把该矩阵拆成三个数组，分别为 `[1,2,3,4],[5,6,7,8],[9,10,11,12]`，分别存到变量 `int *a, *b, *c` 里
 
-然后创建矩阵变量，矩阵变量记为 `int **matrix`，类型是 `int**` 代表 `matrix` 是指针 `int*` 的指针，也就是指针 `int*` 的数组，我们要做的是让 `matrix = [a,b,c]`。例如之后如果要访问矩阵的第 i 行第 j 个元素，就去访问 `matrix` 的第 i 个元素的第 j 个元素即可，示例代码如下
+然后创建矩阵变量，矩阵变量记为 `int **matrix`，类型是 `int**` 代表 `matrix` 是指针 `int*` 的指针，也就是指针 `int*` 的数组，我们要做的是让 `matrix = [a,b,c]`。例如之后如果要访问矩阵的第 $i$ 行第 $j$ 个元素，就去访问 `matrix` 的第 $i$ 个元素的第 $j$ 个元素即可，示例代码如下
 
 ```cpp title="C++"
 #include <iostream>
@@ -136,9 +136,136 @@ int main() {
 }
 ```
 
+下图展示了以上代码的过程
+
+![](./assets/intro_1.png)
+
 ## 二、数据结构
 
 ### 1. 链表
+
+在使用数组时，会发现数组创建后是无法改变长度的，下面将介绍链表，实现一个可变长，可在头部、中间以及尾部插入元素，删除元素的可变长的数据结构。
+
+我们在这通过结构体来实现链表，链表通过一个一个的节点连接起来，每一个节点 `ListNode` 包括两个内部元素，一个是该节点自身存储的值 `int val`，另一个是指向下一个节点的指针 `ListNode *next`，如下图所示
+
+![](./assets/intro_2.png)
+
+我们需要实现四个功能
+
+1. 查找第 `i` 个节点的值 `getValueAt`
+2. 修改第 `i` 个节点的值 `setValueAt`
+3. 在第 `i` 个位置插入节点 `insertAt`
+4. 删除第 `i` 个位置的节点 `eraseAt`
+
+以下是示例代码，节点编号 `index` 从 `1` 开始
+
+```cpp title="C++"
+#include <iostream>
+using namespace std;
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
+int getValueAt(ListNode *head, int index) {
+    ListNode *cur = head;
+    for (int pos = 1; pos < index; ++pos) {
+        cur = cur->next;
+    }
+    return cur->val;
+}
+
+void setValueAt(ListNode *head, int index, int newValue) {
+    ListNode *cur = head;
+    for (int pos = 1; pos < index; ++pos) {
+        cur = cur->next;
+    }
+    cur->val = newValue;
+}
+
+void insertAt(ListNode *&head, int index, int value) {
+    ListNode dummy(0, head);
+    ListNode *cur = &dummy;
+    for (int pos = 1; pos < index; ++pos) {
+        cur = cur->next;
+    }
+    ListNode *newNode = new ListNode(value);
+    newNode->next = cur->next;
+    cur->next = newNode;
+    head = dummy.next;
+}
+
+void eraseAt(ListNode *&head, int index) {
+    ListNode dummy(0, head);
+    ListNode *cur = &dummy;
+    for (int pos = 1; pos < index; ++pos) {
+        cur = cur->next;
+    }
+    ListNode *toDelete = cur->next;
+    cur->next = toDelete->next;
+    delete toDelete;
+    head = dummy.next;
+}
+
+void printList(ListNode *head) {
+    ListNode *cur = head;
+    while (cur != nullptr) {
+        cout << cur->val;
+        if (cur->next != nullptr) {
+            cout << " -> ";
+        }
+        cur = cur->next;
+    }
+    cout << "\n";
+}
+
+void clearList(ListNode *&head) {
+    while (head != nullptr) {
+        ListNode *next = head->next;
+        delete head;
+        head = next;
+    }
+}
+
+int main() {
+    ListNode *head = nullptr;
+    int value;
+
+    // 初始插入: 10 -> 20 -> 30
+    insertAt(head, 1, 10);
+    insertAt(head, 2, 20);
+    insertAt(head, 3, 30);
+    cout << "初始链表: ";
+    printList(head);
+
+    // 1. 查找第2个节点的值
+    value = getValueAt(head, 2);
+    cout << "第2个节点的值: " << value << "\n";
+
+    // 2. 修改第2个节点的值为88: 10 -> 88 -> 30
+    setValueAt(head, 2, 88);
+    cout << "setValueAt(2, 88) 后: ";
+    printList(head);
+
+    // 3. 在第2个位置插入99: 10 -> 99 -> 88 -> 30
+    insertAt(head, 2, 99);
+    cout << "insertAt(2, 99) 后: ";
+    printList(head);
+
+    // 4. 删除第3个元素: 10 -> 99 -> 30
+    eraseAt(head, 3);
+    cout << "eraseAt(3) 后: ";
+    printList(head);
+
+    clearList(head);
+
+    return 0;
+}
+```
 
 ### 2. 树
 
