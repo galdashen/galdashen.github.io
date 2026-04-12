@@ -28,7 +28,7 @@ sidebar_position: 1
 
 ### 2. Hello, world!
 
-安装完成后可以开始写代码了，新建一个文件，随便起个名字，后缀改为 `.cpp`，例如 `test.cpp`，然后把以下代码复制进去
+安装完成后可以开始写代码了，新建一个 cpp 文件，随便起个名字例如 `test.cpp`，然后把以下代码复制进去
 
 ```cpp title="C++"
 #include <iostream>
@@ -402,3 +402,195 @@ int main() {
 ```
 
 ### 3. 图
+
+图是顶点和边构成的集合，分为有向图和无向图，带权图和无权图，以下代码展示了无向无权图的邻接矩阵，邻接表，DFS 以及 BFS 遍历
+
+```cpp title="C++"
+#include <iostream>
+#include <queue>
+#include <vector>
+
+using namespace std;
+
+void addUndirectedEdgeMatrix(vector<vector<int>> &matrix, int u, int v) {
+    matrix[u][v] = 1;
+    matrix[v][u] = 1;
+}
+
+void addUndirectedEdgeList(vector<vector<int>> &adj, int u, int v) {
+    adj[u].push_back(v);
+    adj[v].push_back(u);
+}
+
+void printMatrix(const vector<vector<int>> &matrix) {
+    cout << "邻接矩阵:\n";
+    for (size_t i = 0; i < matrix.size(); ++i) {
+        for (size_t j = 0; j < matrix[i].size(); ++j) {
+            cout << matrix[i][j] << " ";
+        }
+        cout << "\n";
+    }
+}
+
+void printAdjList(const vector<vector<int>> &adj) {
+    cout << "邻接表:\n";
+    for (size_t u = 0; u < adj.size(); ++u) {
+        cout << u << ": ";
+        for (size_t i = 0; i < adj[u].size(); ++i) {
+            cout << adj[u][i];
+            if (i + 1 < adj[u].size()) {
+                cout << " -> ";
+            }
+        }
+        cout << "\n";
+    }
+}
+
+void dfsMatrixImpl(const vector<vector<int>> &matrix, int u,
+                   vector<bool> &visited, vector<int> &order) {
+    visited[u] = true;
+    order.push_back(u);
+    for (int v = 0; v < static_cast<int>(matrix.size()); ++v) {
+        if (matrix[u][v] == 1 && !visited[v]) {
+            dfsMatrixImpl(matrix, v, visited, order);
+        }
+    }
+}
+
+vector<int> dfsMatrix(const vector<vector<int>> &matrix, int start) {
+    vector<int> order;
+    vector<bool> visited(matrix.size(), false);
+    dfsMatrixImpl(matrix, start, visited, order);
+    return order;
+}
+
+vector<int> bfsMatrix(const vector<vector<int>> &matrix, int start) {
+    vector<int> order;
+    vector<bool> visited(matrix.size(), false);
+    queue<int> q;
+
+    visited[start] = true;
+    q.push(start);
+
+    while (!q.empty()) {
+        int u = q.front();
+        q.pop();
+        order.push_back(u);
+        for (int v = 0; v < static_cast<int>(matrix.size()); ++v) {
+            if (matrix[u][v] == 1 && !visited[v]) {
+                visited[v] = true;
+                q.push(v);
+            }
+        }
+    }
+
+    return order;
+}
+
+void dfsListImpl(const vector<vector<int>> &adj, int u, vector<bool> &visited,
+                 vector<int> &order) {
+    visited[u] = true;
+    order.push_back(u);
+    for (size_t i = 0; i < adj[u].size(); ++i) {
+        int v = adj[u][i];
+        if (!visited[v]) {
+            dfsListImpl(adj, v, visited, order);
+        }
+    }
+}
+
+vector<int> dfsList(const vector<vector<int>> &adj, int start) {
+    vector<int> order;
+    vector<bool> visited(adj.size(), false);
+    dfsListImpl(adj, start, visited, order);
+    return order;
+}
+
+vector<int> bfsList(const vector<vector<int>> &adj, int start) {
+    vector<int> order;
+    vector<bool> visited(adj.size(), false);
+    queue<int> q;
+
+    visited[start] = true;
+    q.push(start);
+
+    while (!q.empty()) {
+        int u = q.front();
+        q.pop();
+        order.push_back(u);
+        for (size_t i = 0; i < adj[u].size(); ++i) {
+            int v = adj[u][i];
+            if (!visited[v]) {
+                visited[v] = true;
+                q.push(v);
+            }
+        }
+    }
+
+    return order;
+}
+
+void printOrder(const vector<int> &order) {
+    for (size_t i = 0; i < order.size(); ++i) {
+        cout << order[i];
+        if (i + 1 < order.size()) {
+            cout << " ";
+        }
+    }
+    cout << "\n";
+}
+
+int main() {
+    int n = 6;
+    // 无向图结构:
+    //       0
+    //      / \
+    //     1   2
+    //    / \   \
+    //   3   4   5
+    // 边集合: (0,1) (0,2) (1,3) (1,4) (2,5)
+    vector<pair<int, int>> edges;
+    edges.push_back({0, 1});
+    edges.push_back({0, 2});
+    edges.push_back({1, 3});
+    edges.push_back({1, 4});
+    edges.push_back({2, 5});
+
+    vector<vector<int>> matrix(n, vector<int>(n, 0));
+    vector<vector<int>> adj(n);
+
+    for (size_t i = 0; i < edges.size(); ++i) {
+        int u = edges[i].first;
+        int v = edges[i].second;
+        addUndirectedEdgeMatrix(matrix, u, v);
+        addUndirectedEdgeList(adj, u, v);
+    }
+
+    printMatrix(matrix);
+    cout << "\n";
+    printAdjList(adj);
+    cout << "\n";
+
+    int start = 0;
+    cout << "从节点 " << start << " 开始遍历:\n";
+
+    vector<int> orderDfsMatrix = dfsMatrix(matrix, start);
+    vector<int> orderBfsMatrix = bfsMatrix(matrix, start);
+    vector<int> orderDfsList = dfsList(adj, start);
+    vector<int> orderBfsList = bfsList(adj, start);
+
+    cout << "邻接矩阵 DFS: ";
+    printOrder(orderDfsMatrix);
+
+    cout << "邻接矩阵 BFS: ";
+    printOrder(orderBfsMatrix);
+
+    cout << "邻接表 DFS: ";
+    printOrder(orderDfsList);
+
+    cout << "邻接表 BFS: ";
+    printOrder(orderBfsList);
+
+    return 0;
+}
+```
