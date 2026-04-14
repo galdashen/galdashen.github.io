@@ -120,6 +120,10 @@ const config: Config = {
           type: "search",
           position: "right",
         },
+        {
+          type: "custom-colorTheme",
+          position: "right",
+        },
       ],
     },
     footer: {
