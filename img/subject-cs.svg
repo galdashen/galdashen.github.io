@@ -1,12 +1,12 @@
 <svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">计算机插图</title>
   <desc id="desc">显示器与代码符号的计算机科学示意图</desc>
-  <rect width="400" height="300" rx="20" fill="#e9f7f1"/>
-  <rect x="70" y="55" width="260" height="165" rx="14" fill="#d8efe6" stroke="#1fa287" stroke-width="5"/>
-  <rect x="160" y="225" width="80" height="12" rx="6" fill="#1fa287"/>
-  <rect x="135" y="238" width="130" height="12" rx="6" fill="#2db89c"/>
-  <text x="120" y="145" font-size="52" font-family="Consolas, Arial, sans-serif" fill="#166a59">&lt;/&gt;</text>
-  <circle cx="95" cy="80" r="5" fill="#2db89c"/>
-  <circle cx="112" cy="80" r="5" fill="#2db89c"/>
-  <circle cx="129" cy="80" r="5" fill="#2db89c"/>
+  <rect width="400" height="300" rx="20" fill="color-mix(in srgb, var(--ifm-color-primary-lightest) 10%, white)"/>
+  <rect x="70" y="55" width="260" height="165" rx="14" fill="color-mix(in srgb, var(--ifm-color-primary-lighter) 15%, white)" stroke="var(--ifm-color-primary)" stroke-width="5"/>
+  <rect x="160" y="225" width="80" height="12" rx="6" fill="var(--ifm-color-primary)"/>
+  <rect x="135" y="238" width="130" height="12" rx="6" fill="var(--ifm-color-primary-light)"/>
+  <text x="120" y="145" font-size="52" font-family="Consolas, Arial, sans-serif" fill="var(--ifm-color-primary-darkest)">&lt;/&gt;</text>
+  <circle cx="95" cy="80" r="5" fill="var(--ifm-color-primary-light)"/>
+  <circle cx="112" cy="80" r="5" fill="var(--ifm-color-primary-light)"/>
+  <circle cx="129" cy="80" r="5" fill="var(--ifm-color-primary-light)"/>
 </svg>
