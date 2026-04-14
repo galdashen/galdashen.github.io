@@ -37,6 +37,15 @@ const FeatureList: FeatureItem[] = [
       </>
     ),
   },
+  // {
+  //   title: "经济学",
+  //   Svg: require("@site/static/img/subject-economics.svg").default,
+  //   description: (
+  //     <>
+  //       经济学是研究个人、企业、政府以及其他团体如何在社会内进行选择，以及这些选择如何决定社会稀缺性资源使用的科学。简单来说，经济学是一门指导如何以理性的态度选择与分配资源的社会科学。经济学的对象是研究人类经济活动的本质，揭示经济现象的发展规律，帮助人们认识社会经济现象。
+  //     </>
+  //   ),
+  // },
 ];
 
 function Feature({ title, Svg, description }: FeatureItem) {
