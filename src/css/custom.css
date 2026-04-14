@@ -6,6 +6,12 @@
 
 /* You can override the default Infima variables here. */
 
+/* 添加新颜色要修改三个文件：
+1. custom.css
+2. ColorThemeNavbarItem.tsx
+3. Root.tsx */
+
+/* 默认颜色：奶龙黄 */
 :root {
   --ifm-color-primary: #d6a02b;
   --ifm-color-primary-dark: #c19027;
@@ -18,7 +24,7 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-[data-theme="dark"] {
+:root[data-theme="dark"] {
   --ifm-color-primary: #f2c55a;
   --ifm-color-primary-dark: #edba3f;
   --ifm-color-primary-darker: #ebb433;
@@ -82,24 +88,24 @@
   --ifm-color-primary-lightest: #bbeffe;
 }
 
-:root[data-color-theme="nailong"] {
-  --ifm-color-primary: #d6a02b;
-  --ifm-color-primary-dark: #c19027;
-  --ifm-color-primary-darker: #b68725;
-  --ifm-color-primary-darkest: #96701f;
-  --ifm-color-primary-light: #dcac43;
-  --ifm-color-primary-lighter: #e0b452;
-  --ifm-color-primary-lightest: #e8c679;
+:root[data-color-theme="heita"] {
+  --ifm-color-primary: #7e57c8;
+  --ifm-color-primary-dark: #6f45c2;
+  --ifm-color-primary-darker: #673dbf;
+  --ifm-color-primary-darkest: #54329d;
+  --ifm-color-primary-light: #906dce;
+  --ifm-color-primary-lighter: #9979d2;
+  --ifm-color-primary-lightest: #b6a0de;
 }
 
-:root[data-theme="dark"][data-color-theme="nailong"] {
-  --ifm-color-primary: #f2c55a;
-  --ifm-color-primary-dark: #edba3f;
-  --ifm-color-primary-darker: #ebb433;
-  --ifm-color-primary-darkest: #d49b16;
-  --ifm-color-primary-light: #f5cf75;
-  --ifm-color-primary-lighter: #f6d582;
-  --ifm-color-primary-lightest: #fae4ae;
+:root[data-theme="dark"][data-color-theme="heita"] {
+  --ifm-color-primary: #9b7bf0;
+  --ifm-color-primary-dark: #8963ec;
+  --ifm-color-primary-darker: #8057ea;
+  --ifm-color-primary-darkest: #6533e3;
+  --ifm-color-primary-light: #ad93f4;
+  --ifm-color-primary-lighter: #b79ff5;
+  --ifm-color-primary-lightest: #d5cafb;
 }
 
 :root[data-color-theme="xilian"] {
@@ -122,22 +128,22 @@
   --ifm-color-primary-lightest: #fbd8eb;
 }
 
-:root[data-color-theme="heita"] {
-  --ifm-color-primary: #7e57c8;
-  --ifm-color-primary-dark: #6f45c2;
-  --ifm-color-primary-darker: #673dbf;
-  --ifm-color-primary-darkest: #54329d;
-  --ifm-color-primary-light: #906dce;
-  --ifm-color-primary-lighter: #9979d2;
-  --ifm-color-primary-lightest: #b6a0de;
+:root[data-color-theme="dongxuelian"] {
+  --ifm-color-primary: #b8b1c8;
+  --ifm-color-primary-dark: #aaa2bd;
+  --ifm-color-primary-darker: #a39ab8;
+  --ifm-color-primary-darkest: #877ca0;
+  --ifm-color-primary-light: #c4bed1;
+  --ifm-color-primary-lighter: #cbc5d7;
+  --ifm-color-primary-lightest: #ddd9e6;
 }
 
-:root[data-theme="dark"][data-color-theme="heita"] {
-  --ifm-color-primary: #9b7bf0;
-  --ifm-color-primary-dark: #8963ec;
-  --ifm-color-primary-darker: #8057ea;
-  --ifm-color-primary-darkest: #6533e3;
-  --ifm-color-primary-light: #ad93f4;
-  --ifm-color-primary-lighter: #b79ff5;
-  --ifm-color-primary-lightest: #d5cafb;
+:root[data-theme="dark"][data-color-theme="dongxuelian"] {
+  --ifm-color-primary: #d5d0e5;
+  --ifm-color-primary-dark: #c7c1db;
+  --ifm-color-primary-darker: #beb8d6;
+  --ifm-color-primary-darkest: #a39ac2;
+  --ifm-color-primary-light: #dfdbec;
+  --ifm-color-primary-lighter: #e6e2f0;
+  --ifm-color-primary-lightest: #f2f0f7;
 }

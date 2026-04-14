@@ -4,7 +4,13 @@ import React, { useEffect, useMemo, useState } from "react";
 const STORAGE_KEY = "site.color-theme";
 const DEFAULT_THEME = "nailong";
 
-type ThemeId = "nailong" | "wendi" | "fufu" | "xilian" | "heita";
+type ThemeId =
+  | "nailong"
+  | "wendi"
+  | "fufu"
+  | "heita"
+  | "xilian"
+  | "dongxuelian";
 
 type ColorTheme = {
   id: ThemeId;
@@ -15,8 +21,9 @@ const COLOR_THEMES: readonly ColorTheme[] = [
   { id: "nailong", label: "奶龙黄" },
   { id: "wendi", label: "温迪绿" },
   { id: "fufu", label: "芙芙蓝" },
-  { id: "xilian", label: "昔涟粉" },
   { id: "heita", label: "黑塔紫" },
+  { id: "xilian", label: "昔涟粉" },
+  { id: "dongxuelian", label: "东雪莲白" },
 ];
 
 function isValidTheme(themeId: string | null): themeId is ThemeId {
@@ -45,6 +52,13 @@ export default function ColorThemeNavbarItem({
   const [themeId, setThemeId] = useState<ThemeId>(DEFAULT_THEME);
 
   useEffect(() => {
+    const attributeTheme =
+      document.documentElement.getAttribute("data-color-theme");
+    if (isValidTheme(attributeTheme)) {
+      setThemeId(attributeTheme);
+      return;
+    }
+
     const savedTheme = window.localStorage.getItem(STORAGE_KEY);
     const initialTheme = isValidTheme(savedTheme) ? savedTheme : DEFAULT_THEME;
     setThemeId(initialTheme);
@@ -79,7 +93,7 @@ export default function ColorThemeNavbarItem({
       title={`切换主题色，当前：${currentLabel}`}
       aria-label={`切换主题色，当前：${currentLabel}`}
     >
-      配色: {currentLabel}
+      主题色
     </button>
   );
 }
