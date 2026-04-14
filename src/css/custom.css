@@ -32,8 +32,30 @@
 /*
  * Optional custom palettes.
  * Apply one class on html or body:
- * theme-nailong-yellow | theme-taffy-pink | theme-react-blue | theme-herta-purple
+ * theme-react-blue | theme-nailong-yellow | theme-taffy-pink | theme-herta-purple
  */
+
+:root.theme-react-blue,
+body.theme-react-blue {
+  --ifm-color-primary: #2e95d9;
+  --ifm-color-primary-dark: #2786c3;
+  --ifm-color-primary-darker: #257ebb;
+  --ifm-color-primary-darkest: #1f689a;
+  --ifm-color-primary-light: #45a2dd;
+  --ifm-color-primary-lighter: #52a9e0;
+  --ifm-color-primary-lightest: #7dbfe8;
+}
+
+:root[data-theme="dark"].theme-react-blue,
+[data-theme="dark"] body.theme-react-blue {
+  --ifm-color-primary: #61dafb;
+  --ifm-color-primary-dark: #43d3fa;
+  --ifm-color-primary-darker: #33d0fa;
+  --ifm-color-primary-darkest: #05bff4;
+  --ifm-color-primary-light: #7fe1fc;
+  --ifm-color-primary-lighter: #8ee4fc;
+  --ifm-color-primary-lightest: #bbeffe;
+}
 
 :root.theme-nailong-yellow,
 body.theme-nailong-yellow {
@@ -77,28 +99,6 @@ body.theme-taffy-pink {
   --ifm-color-primary-light: #f5a6cf;
   --ifm-color-primary-lighter: #f7b2d5;
   --ifm-color-primary-lightest: #fbd8eb;
-}
-
-:root.theme-react-blue,
-body.theme-react-blue {
-  --ifm-color-primary: #2e95d9;
-  --ifm-color-primary-dark: #2786c3;
-  --ifm-color-primary-darker: #257ebb;
-  --ifm-color-primary-darkest: #1f689a;
-  --ifm-color-primary-light: #45a2dd;
-  --ifm-color-primary-lighter: #52a9e0;
-  --ifm-color-primary-lightest: #7dbfe8;
-}
-
-:root[data-theme="dark"].theme-react-blue,
-[data-theme="dark"] body.theme-react-blue {
-  --ifm-color-primary: #61dafb;
-  --ifm-color-primary-dark: #43d3fa;
-  --ifm-color-primary-darker: #33d0fa;
-  --ifm-color-primary-darkest: #05bff4;
-  --ifm-color-primary-light: #7fe1fc;
-  --ifm-color-primary-lighter: #8ee4fc;
-  --ifm-color-primary-lightest: #bbeffe;
 }
 
 :root.theme-herta-purple,
