@@ -1,16 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import clsx from "clsx";
-import IconDarkMode from "@theme/Icon/DarkMode";
-import IconLightMode from "@theme/Icon/LightMode";
 
 import styles from "./styles.module.css";
 
-type ColorMode = "light" | "dark";
-
 type Props = {
   className?: string;
-  value?: ColorMode;
-  onChange?: (value: ColorMode) => void;
 };
 
 const STORAGE_KEY = "site-theme";
@@ -58,15 +52,15 @@ function getSavedTheme(): ThemeId {
     return "default";
   }
 
-  const saved = window.localStorage.getItem(STORAGE_KEY);
-  return isThemeId(saved) ? saved : "default";
+  try {
+    const saved = window.localStorage.getItem(STORAGE_KEY);
+    return isThemeId(saved) ? saved : "default";
+  } catch {
+    return "default";
+  }
 }
 
-export default function ColorModeToggle({
-  className,
-  value = "light",
-  onChange,
-}: Props) {
+export default function ThemeSwitcher({ className }: Props) {
   const [themeId, setThemeId] = useState<ThemeId>("default");
 
   useEffect(() => {
@@ -75,15 +69,9 @@ export default function ColorModeToggle({
     applyTheme(savedTheme);
   }, []);
 
-  const isDark = value === "dark";
-
   const currentThemeLabel = useMemo(() => {
     return THEME_OPTIONS.find((item) => item.id === themeId)?.label ?? "温迪绿";
   }, [themeId]);
-
-  const handleModeToggle = () => {
-    onChange?.(isDark ? "light" : "dark");
-  };
 
   const handleThemeToggle = () => {
     const currentIndex = THEME_OPTIONS.findIndex((item) => item.id === themeId);
@@ -94,33 +82,25 @@ export default function ColorModeToggle({
     applyTheme(nextTheme.id);
 
     if (typeof window !== "undefined") {
-      window.localStorage.setItem(STORAGE_KEY, nextTheme.id);
+      try {
+        window.localStorage.setItem(STORAGE_KEY, nextTheme.id);
+      } catch {
+        // Ignore storage write failures in privacy-restricted environments.
+      }
     }
   };
 
   return (
-    <div className={clsx(styles.group, className)}>
-      <button
-        type="button"
-        className={clsx("clean-btn", styles.modeBtn)}
-        onClick={handleModeToggle}
-        title={isDark ? "切换到浅色模式" : "切换到深色模式"}
-        aria-label={isDark ? "切换到浅色模式" : "切换到深色模式"}
-      >
-        {isDark ? <IconLightMode /> : <IconDarkMode />}
-      </button>
-
-      <button
-        type="button"
-        className={clsx("clean-btn", styles.themeBtn)}
-        onClick={handleThemeToggle}
-        title={`切换主题色，当前: ${currentThemeLabel}`}
-        aria-label={`切换主题色，当前: ${currentThemeLabel}`}
-      >
-        <span className={styles.themeEmoji} aria-hidden="true">
-          🎨
-        </span>
-      </button>
-    </div>
+    <button
+      type="button"
+      className={clsx("clean-btn", styles.themeBtn, className)}
+      onClick={handleThemeToggle}
+      title={`切换主题色，当前: ${currentThemeLabel}`}
+      aria-label={`切换主题色，当前: ${currentThemeLabel}`}
+    >
+      <span className={styles.themeEmoji} aria-hidden="true">
+        🎨
+      </span>
+    </button>
   );
 }

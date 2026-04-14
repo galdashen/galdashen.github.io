@@ -1,0 +1,10 @@
+@media (max-width: 996px) {
+  .colorModeToggle,
+  .themeToggle {
+    display: none;
+  }
+}
+
+:global(.navbar__items--right) > :last-child {
+  padding-right: 0;
+}
