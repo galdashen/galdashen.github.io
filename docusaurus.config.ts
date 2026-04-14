@@ -142,6 +142,7 @@ const config: Config = {
         {
           type: "custom-colorTheme",
           position: "right",
+          className: "color-theme-desktop-item",
         },
       ],
     },
