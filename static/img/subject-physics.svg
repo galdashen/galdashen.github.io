@@ -1,17 +1,17 @@
 <svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">物理插图</title>
   <desc id="desc">类似 React 风格的电子轨道示意图，包含原子核与电子环绕轨迹</desc>
-  <rect width="400" height="300" rx="20" fill="#e9f7f1"/>
+  <rect width="400" height="300" rx="20" fill="color-mix(in srgb, var(--ifm-color-primary-lightest) 10%, white)"/>
 
   <g transform="translate(200 150)">
-    <ellipse cx="0" cy="0" rx="110" ry="44" fill="none" stroke="#2db89c" stroke-width="6"/>
-    <ellipse cx="0" cy="0" rx="110" ry="44" transform="rotate(60)" fill="none" stroke="#2db89c" stroke-width="6"/>
-    <ellipse cx="0" cy="0" rx="110" ry="44" transform="rotate(-60)" fill="none" stroke="#2db89c" stroke-width="6"/>
+    <ellipse cx="0" cy="0" rx="110" ry="44" fill="none" stroke="var(--ifm-color-primary-light)" stroke-width="6"/>
+    <ellipse cx="0" cy="0" rx="110" ry="44" transform="rotate(60)" fill="none" stroke="var(--ifm-color-primary-light)" stroke-width="6"/>
+    <ellipse cx="0" cy="0" rx="110" ry="44" transform="rotate(-60)" fill="none" stroke="var(--ifm-color-primary-light)" stroke-width="6"/>
 
-    <circle cx="0" cy="0" r="15" fill="#166a59"/>
+    <circle cx="0" cy="0" r="15" fill="var(--ifm-color-primary-darkest)"/>
 
-    <circle cx="110" cy="0" r="8" fill="#1fa287"/>
-    <circle cx="-55" cy="95" r="8" fill="#1fa287"/>
-    <circle cx="-55" cy="-95" r="8" fill="#1fa287"/>
+    <circle cx="110" cy="0" r="8" fill="var(--ifm-color-primary)"/>
+    <circle cx="-55" cy="95" r="8" fill="var(--ifm-color-primary)"/>
+    <circle cx="-55" cy="-95" r="8" fill="var(--ifm-color-primary)"/>
   </g>
 </svg>
