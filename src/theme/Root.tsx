@@ -7,7 +7,7 @@ const initColorThemeScript = `(() => {
   try {
     const value = window.localStorage.getItem("${STORAGE_KEY}");
     if (!value) return;
-    const allowed = new Set(["nailong", "wendi", "fufu", "heita", "xilian", "dongxuelian"]);
+    const allowed = new Set(["nailong", "wendi", "fufu", "pangmao", "taffy", "dongxuelian", "huawei"]);
     if (!allowed.has(value)) return;
     document.documentElement.setAttribute("data-color-theme", value);
   } catch {

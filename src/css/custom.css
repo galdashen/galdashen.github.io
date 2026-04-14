@@ -88,7 +88,7 @@
   --ifm-color-primary-lightest: #bbeffe;
 }
 
-:root[data-color-theme="heita"] {
+:root[data-color-theme="pangmao"] {
   --ifm-color-primary: #7e57c8;
   --ifm-color-primary-dark: #6f45c2;
   --ifm-color-primary-darker: #673dbf;
@@ -98,7 +98,7 @@
   --ifm-color-primary-lightest: #b6a0de;
 }
 
-:root[data-theme="dark"][data-color-theme="heita"] {
+:root[data-theme="dark"][data-color-theme="pangmao"] {
   --ifm-color-primary: #9b7bf0;
   --ifm-color-primary-dark: #8963ec;
   --ifm-color-primary-darker: #8057ea;
@@ -108,7 +108,7 @@
   --ifm-color-primary-lightest: #d5cafb;
 }
 
-:root[data-color-theme="xilian"] {
+:root[data-color-theme="taffy"] {
   --ifm-color-primary: #dd6ea8;
   --ifm-color-primary-dark: #d5579a;
   --ifm-color-primary-darker: #d04d93;
@@ -118,7 +118,7 @@
   --ifm-color-primary-lightest: #f1b3d3;
 }
 
-:root[data-theme="dark"][data-color-theme="xilian"] {
+:root[data-theme="dark"][data-color-theme="taffy"] {
   --ifm-color-primary: #f08bc1;
   --ifm-color-primary-dark: #eb70b2;
   --ifm-color-primary-darker: #e964ab;
@@ -129,21 +129,41 @@
 }
 
 :root[data-color-theme="dongxuelian"] {
-  --ifm-color-primary: #b8b1c8;
-  --ifm-color-primary-dark: #aaa2bd;
-  --ifm-color-primary-darker: #a39ab8;
-  --ifm-color-primary-darkest: #877ca0;
-  --ifm-color-primary-light: #c4bed1;
-  --ifm-color-primary-lighter: #cbc5d7;
-  --ifm-color-primary-lightest: #ddd9e6;
+  --ifm-color-primary: #b9afd0;
+  --ifm-color-primary-dark: #aba0c4;
+  --ifm-color-primary-darker: #a399be;
+  --ifm-color-primary-darkest: #867ba6;
+  --ifm-color-primary-light: #c5bdd9;
+  --ifm-color-primary-lighter: #cdc5de;
+  --ifm-color-primary-lightest: #e1dced;
 }
 
 :root[data-theme="dark"][data-color-theme="dongxuelian"] {
-  --ifm-color-primary: #d5d0e5;
-  --ifm-color-primary-dark: #c7c1db;
-  --ifm-color-primary-darker: #beb8d6;
-  --ifm-color-primary-darkest: #a39ac2;
-  --ifm-color-primary-light: #dfdbec;
-  --ifm-color-primary-lighter: #e6e2f0;
-  --ifm-color-primary-lightest: #f2f0f7;
+  --ifm-color-primary: #d8d2ea;
+  --ifm-color-primary-dark: #cac3de;
+  --ifm-color-primary-darker: #c0b9d9;
+  --ifm-color-primary-darkest: #a49ac6;
+  --ifm-color-primary-light: #e2ddf0;
+  --ifm-color-primary-lighter: #e9e4f4;
+  --ifm-color-primary-lightest: #f3f1f9;
+}
+
+:root[data-color-theme="huawei"] {
+  --ifm-color-primary: #e13a51;
+  --ifm-color-primary-dark: #db2942;
+  --ifm-color-primary-darker: #d7213b;
+  --ifm-color-primary-darkest: #b31a31;
+  --ifm-color-primary-light: #e74f64;
+  --ifm-color-primary-lighter: #eb5d71;
+  --ifm-color-primary-lightest: #f18a9a;
+}
+
+:root[data-theme="dark"][data-color-theme="huawei"] {
+  --ifm-color-primary: #ff6a7e;
+  --ifm-color-primary-dark: #ff4c64;
+  --ifm-color-primary-darker: #ff3d57;
+  --ifm-color-primary-darkest: #f10c30;
+  --ifm-color-primary-light: #ff8899;
+  --ifm-color-primary-lighter: #ff97a5;
+  --ifm-color-primary-lightest: #ffc3cb;
 }

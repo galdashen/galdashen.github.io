@@ -8,9 +8,10 @@ type ThemeId =
   | "nailong"
   | "wendi"
   | "fufu"
-  | "heita"
-  | "xilian"
-  | "dongxuelian";
+  | "pangmao"
+  | "taffy"
+  | "dongxuelian"
+  | "huawei";
 
 type ColorTheme = {
   id: ThemeId;
@@ -21,9 +22,10 @@ const COLOR_THEMES: readonly ColorTheme[] = [
   { id: "nailong", label: "奶龙黄" },
   { id: "wendi", label: "温迪绿" },
   { id: "fufu", label: "芙芙蓝" },
-  { id: "heita", label: "黑塔紫" },
-  { id: "xilian", label: "昔涟粉" },
+  { id: "pangmao", label: "黑塔紫" },
+  { id: "taffy", label: "昔涟粉" },
   { id: "dongxuelian", label: "东雪莲白" },
+  { id: "huawei", label: "华为红" },
 ];
 
 function isValidTheme(themeId: string | null): themeId is ThemeId {
