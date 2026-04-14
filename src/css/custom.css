@@ -5,7 +5,9 @@
  */
 
 /* You can override the default Infima variables here. */
-:root {
+
+/* 温迪绿 */
+/* :root {
   --ifm-color-primary: #2e8555;
   --ifm-color-primary-dark: #29784c;
   --ifm-color-primary-darker: #277148;
@@ -16,8 +18,6 @@
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
-
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
   --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: #21af90;
@@ -27,16 +27,10 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-}
+} */
 
-/*
- * Optional custom palettes.
- * Apply one class on html or body:
- * theme-react-blue | theme-nailong-yellow | theme-taffy-pink | theme-herta-purple
- */
-
-:root.theme-react-blue,
-body.theme-react-blue {
+/* 芙芙蓝 */
+:root {
   --ifm-color-primary: #2e95d9;
   --ifm-color-primary-dark: #2786c3;
   --ifm-color-primary-darker: #257ebb;
@@ -44,10 +38,10 @@ body.theme-react-blue {
   --ifm-color-primary-light: #45a2dd;
   --ifm-color-primary-lighter: #52a9e0;
   --ifm-color-primary-lightest: #7dbfe8;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
-
-:root[data-theme="dark"].theme-react-blue,
-[data-theme="dark"] body.theme-react-blue {
+[data-theme="dark"] {
   --ifm-color-primary: #61dafb;
   --ifm-color-primary-dark: #43d3fa;
   --ifm-color-primary-darker: #33d0fa;
@@ -55,10 +49,11 @@ body.theme-react-blue {
   --ifm-color-primary-light: #7fe1fc;
   --ifm-color-primary-lighter: #8ee4fc;
   --ifm-color-primary-lightest: #bbeffe;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-:root.theme-nailong-yellow,
-body.theme-nailong-yellow {
+/* 奶龙黄 */
+/* :root {
   --ifm-color-primary: #d6a02b;
   --ifm-color-primary-dark: #c19027;
   --ifm-color-primary-darker: #b68725;
@@ -66,10 +61,10 @@ body.theme-nailong-yellow {
   --ifm-color-primary-light: #dcac43;
   --ifm-color-primary-lighter: #e0b452;
   --ifm-color-primary-lightest: #e8c679;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
-
-:root[data-theme="dark"].theme-nailong-yellow,
-[data-theme="dark"] body.theme-nailong-yellow {
+[data-theme="dark"] {
   --ifm-color-primary: #f2c55a;
   --ifm-color-primary-dark: #edba3f;
   --ifm-color-primary-darker: #ebb433;
@@ -77,10 +72,11 @@ body.theme-nailong-yellow {
   --ifm-color-primary-light: #f5cf75;
   --ifm-color-primary-lighter: #f6d582;
   --ifm-color-primary-lightest: #fae4ae;
-}
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+} */
 
-:root.theme-taffy-pink,
-body.theme-taffy-pink {
+/* 昔涟粉 */
+/* :root {
   --ifm-color-primary: #dd6ea8;
   --ifm-color-primary-dark: #d5579a;
   --ifm-color-primary-darker: #d04d93;
@@ -88,10 +84,10 @@ body.theme-taffy-pink {
   --ifm-color-primary-light: #e585b6;
   --ifm-color-primary-lighter: #e98fbc;
   --ifm-color-primary-lightest: #f1b3d3;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
-
-:root[data-theme="dark"].theme-taffy-pink,
-[data-theme="dark"] body.theme-taffy-pink {
+[data-theme="dark"] {
   --ifm-color-primary: #f08bc1;
   --ifm-color-primary-dark: #eb70b2;
   --ifm-color-primary-darker: #e964ab;
@@ -99,10 +95,11 @@ body.theme-taffy-pink {
   --ifm-color-primary-light: #f5a6cf;
   --ifm-color-primary-lighter: #f7b2d5;
   --ifm-color-primary-lightest: #fbd8eb;
-}
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+} */
 
-:root.theme-herta-purple,
-body.theme-herta-purple {
+/* 黑塔紫 */
+/* :root {
   --ifm-color-primary: #7e57c8;
   --ifm-color-primary-dark: #6f45c2;
   --ifm-color-primary-darker: #673dbf;
@@ -110,10 +107,10 @@ body.theme-herta-purple {
   --ifm-color-primary-light: #906dce;
   --ifm-color-primary-lighter: #9979d2;
   --ifm-color-primary-lightest: #b6a0de;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
-
-:root[data-theme="dark"].theme-herta-purple,
-[data-theme="dark"] body.theme-herta-purple {
+[data-theme="dark"] {
   --ifm-color-primary: #9b7bf0;
   --ifm-color-primary-dark: #8963ec;
   --ifm-color-primary-darker: #8057ea;
@@ -121,4 +118,5 @@ body.theme-herta-purple {
   --ifm-color-primary-light: #ad93f4;
   --ifm-color-primary-lighter: #b79ff5;
   --ifm-color-primary-lightest: #d5cafb;
-}
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+} */
