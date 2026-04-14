@@ -12,7 +12,7 @@ sidebar_position: 1
 
 首先安装编译器
 
-第一步，打开 <a href="https://www.msys2.org/" target="_blank">https://www.msys2.org/</a> 下载安装 `msys2-x86_64-xxxx.exe`
+第一步，打开 [https://www.msys2.org/](https://www.msys2.org/) 下载安装 `msys2-x86_64-xxxx.exe`
 
 第二步，打开 `C:\msys64\ucrt64.exe` 输入命令 `pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain`
 
