@@ -4,7 +4,14 @@ import React, { useEffect, useMemo, useState } from "react";
 const STORAGE_KEY = "site.color-theme";
 const DEFAULT_THEME = "nailong";
 
-const COLOR_THEMES = [
+type ThemeId = "nailong" | "wendi" | "fufu" | "xilian" | "heita";
+
+type ColorTheme = {
+  id: ThemeId;
+  label: string;
+};
+
+const COLOR_THEMES: readonly ColorTheme[] = [
   { id: "nailong", label: "奶龙黄" },
   { id: "wendi", label: "温迪绿" },
   { id: "fufu", label: "芙芙蓝" },
@@ -12,15 +19,15 @@ const COLOR_THEMES = [
   { id: "heita", label: "黑塔紫" },
 ];
 
-function isValidTheme(themeId) {
+function isValidTheme(themeId: string | null): themeId is ThemeId {
   return COLOR_THEMES.some((theme) => theme.id === themeId);
 }
 
-function applyTheme(themeId) {
+function applyTheme(themeId: ThemeId): void {
   document.documentElement.setAttribute("data-color-theme", themeId);
 }
 
-function nextTheme(themeId) {
+function nextTheme(themeId: ThemeId): ThemeId {
   const index = COLOR_THEMES.findIndex((theme) => theme.id === themeId);
   if (index < 0) {
     return DEFAULT_THEME;
@@ -28,8 +35,14 @@ function nextTheme(themeId) {
   return COLOR_THEMES[(index + 1) % COLOR_THEMES.length].id;
 }
 
-export default function ColorThemeNavbarItem({ className }) {
-  const [themeId, setThemeId] = useState(DEFAULT_THEME);
+type ColorThemeNavbarItemProps = {
+  className?: string;
+};
+
+export default function ColorThemeNavbarItem({
+  className,
+}: ColorThemeNavbarItemProps): React.JSX.Element {
+  const [themeId, setThemeId] = useState<ThemeId>(DEFAULT_THEME);
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem(STORAGE_KEY);
