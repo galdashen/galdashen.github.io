@@ -78,7 +78,7 @@
   --ifm-color-primary-lightest: #e8c679;
 }
 
-:root[data-theme="dark"][data-color-theme="wendi"] {
+:root[data-theme="dark"][data-color-theme="nailong"] {
   --ifm-color-primary: #f2c55a;
   --ifm-color-primary-dark: #edba3f;
   --ifm-color-primary-darker: #ebb433;
