@@ -9,7 +9,7 @@
 /* 添加新颜色要修改三个文件：
 1. custom.css
 2. ColorThemeNavbarItem.tsx
-3. Root.tsx */
+3. docusaurus.config.ts */
 
 /* 默认颜色：温迪绿 */
 :root {

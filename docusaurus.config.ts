@@ -6,6 +6,18 @@ import remarkMath from "remark-math";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+const initColorThemeScript = `(() => {
+  try {
+    const value = window.localStorage.getItem("site.color-theme");
+    if (!value) return;
+    const allowed = new Set(["wendi", "fufu", "nailong", "pangmao", "taffy", "dongxuelian", "huawei"]);
+    if (!allowed.has(value)) return;
+    document.documentElement.setAttribute("data-color-theme", value);
+  } catch {
+    // Ignore read errors in restricted environments.
+  }
+})();`;
+
 const config: Config = {
   title: "galdashen",
   tagline: "本站主要用于存放我的学习笔记",
@@ -35,6 +47,13 @@ const config: Config = {
     {
       href: "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css",
       type: "text/css",
+    },
+  ],
+  headTags: [
+    {
+      tagName: "script",
+      attributes: {},
+      innerHTML: initColorThemeScript,
     },
   ],
 
