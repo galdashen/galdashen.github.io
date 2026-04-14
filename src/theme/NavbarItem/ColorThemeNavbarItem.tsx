@@ -2,12 +2,12 @@ import clsx from "clsx";
 import React, { useEffect, useMemo, useState } from "react";
 
 const STORAGE_KEY = "site.color-theme";
-const DEFAULT_THEME = "nailong";
+const DEFAULT_THEME = "wendi";
 
 type ThemeId =
-  | "nailong"
   | "wendi"
   | "fufu"
+  | "nailong"
   | "pangmao"
   | "taffy"
   | "dongxuelian"
@@ -19,11 +19,11 @@ type ColorTheme = {
 };
 
 const COLOR_THEMES: readonly ColorTheme[] = [
-  { id: "nailong", label: "奶龙黄" },
   { id: "wendi", label: "温迪绿" },
   { id: "fufu", label: "芙芙蓝" },
-  { id: "pangmao", label: "黑塔紫" },
-  { id: "taffy", label: "昔涟粉" },
+  { id: "nailong", label: "奶龙黄" },
+  { id: "pangmao", label: "胖猫紫" },
+  { id: "taffy", label: "塔菲粉" },
   { id: "dongxuelian", label: "东雪莲白" },
   { id: "huawei", label: "华为红" },
 ];
