@@ -48,6 +48,25 @@
   background: var(--ifm-color-emphasis-200);
 }
 
+.color-mode-with-theme-toggle {
+  display: inline-flex;
+  gap: 0.3rem;
+}
+
+.mobile-color-theme-toggle {
+  display: none;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  height: 1.9rem;
+  line-height: 1.9rem;
+  padding: 0 0.6rem;
+}
+
+.mobile-color-theme-toggle:hover {
+  background: var(--ifm-color-emphasis-200);
+}
+
 @media (max-width: 996px) {
   .color-theme-desktop-item {
     display: none !important;
