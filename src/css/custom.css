@@ -30,7 +30,7 @@
 } */
 
 /* 芙芙蓝 */
-:root {
+/* :root {
   --ifm-color-primary: #2e95d9;
   --ifm-color-primary-dark: #2786c3;
   --ifm-color-primary-darker: #257ebb;
@@ -50,10 +50,10 @@
   --ifm-color-primary-lighter: #8ee4fc;
   --ifm-color-primary-lightest: #bbeffe;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-}
+} */
 
 /* 奶龙黄 */
-/* :root {
+:root {
   --ifm-color-primary: #d6a02b;
   --ifm-color-primary-dark: #c19027;
   --ifm-color-primary-darker: #b68725;
@@ -73,7 +73,7 @@
   --ifm-color-primary-lighter: #f6d582;
   --ifm-color-primary-lightest: #fae4ae;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-} */
+}
 
 /* 昔涟粉 */
 /* :root {
