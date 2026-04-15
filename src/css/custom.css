@@ -6,10 +6,11 @@
 
 /* You can override the default Infima variables here. */
 
-/* 添加新颜色要修改三个文件：
+/* 添加新颜色要修改四个文件：
 1. custom.css
 2. ColorThemeNavbarItem.tsx
-3. docusaurus.config.ts */
+3. docusaurus.config.ts
+4. ColorModeToggle/index.tsx */
 
 /* 默认颜色：温迪绿 */
 :root {
@@ -45,6 +46,25 @@
 }
 
 .color-theme-toggle:hover {
+  background: var(--ifm-color-emphasis-200);
+}
+
+.color-mode-with-theme-toggle {
+  display: inline-flex;
+  gap: 0.3rem;
+}
+
+.mobile-color-theme-toggle {
+  display: none;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  height: 1.9rem;
+  line-height: 1.9rem;
+  padding: 0 0.6rem;
+}
+
+.mobile-color-theme-toggle:hover {
   background: var(--ifm-color-emphasis-200);
 }
 
