@@ -7,7 +7,7 @@
     </filter>
   </defs>
 
-  <rect width="400" height="300" rx="20" fill="color-mix(in srgb, var(--ifm-color-primary-lightest) 10%, white)"/>
+  <rect width="400" height="300" rx="20" fill="color-mix(in srgb, var(--ifm-color-primary-lightest, #3cad6e) 10%, white)"/>
 
   <!-- 通过修改下方的 translate 和 scale 参数，可以方便地平移和缩放整个内部图像 -->
   <g transform="translate(200 150) scale(0.9) translate(-200 -150)">
