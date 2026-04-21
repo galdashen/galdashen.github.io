@@ -16,6 +16,8 @@ sidebar_position: 8
 
 ### 方法一：递归
 
+`helper` 函数用来锁定每一个子树的取值范围。
+
 ```java title="Java"
 class Solution {
     public boolean isValidBST(TreeNode root) {
