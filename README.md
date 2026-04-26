@@ -14,19 +14,19 @@
 **安装依赖**
 
 ```bash
-yarn
+npm install
 ```
 
 **启动本地开发服务器**（支持热重载）
 
 ```bash
-yarn start
+npm start
 ```
 
 **构建生产版本**
 
 ```bash
-yarn build
+npm run build
 ```
 
 构建产物输出到 `build/` 目录，可通过任意静态文件托管服务部署。
@@ -34,7 +34,7 @@ yarn build
 **部署到 GitHub Pages**
 
 ```bash
-yarn deploy
+npm run deploy
 ```
 
 ## 🔍 题解校验

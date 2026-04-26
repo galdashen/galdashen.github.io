@@ -4,10 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Commands
 
-- `yarn start` — 启动本地开发服务器（热重载）
-- `yarn build` — 构建生产版本到 `build/`
-- `yarn deploy` — 部署到 GitHub Pages
-- `yarn typecheck` — TypeScript 类型检查
+- `npm start` — 启动本地开发服务器（热重载）
+- `npm run build` — 构建生产版本到 `build/`
+- `npm run deploy` — 部署到 GitHub Pages
+- `npm run typecheck` — TypeScript 类型检查
 - `python check_leetcode.py` — 检查题解文件是否包含必需的章节（原题链接、时间复杂度、空间复杂度、方法/解法标题）
 
 ## 项目结构
