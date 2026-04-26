@@ -1,41 +1,53 @@
-# Website
+# galdashen.github.io
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+个人学习笔记站点，基于 [Docusaurus](https://docusaurus.io/) 构建，部署在 [GitHub Pages](https://galdashen.github.io)。
 
-## Installation
+## 📚 内容
+
+- **LeetCode Hot 100**：按主题分类的题解（数组、哈希、链表、二叉树、矩阵、滑动窗口、子串、双指针）
+- **Top Interview 150**：高频面试题题解
+- **Java 面试笔记**：Java 常见面试知识点整理
+- **C++ 基础教程**：指针、链表、树、图等基础内容
+
+## 🚀 快速开始
+
+**安装依赖**
 
 ```bash
 yarn
 ```
 
-## Local Development
+**启动本地开发服务器**（支持热重载）
 
 ```bash
 yarn start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
+**构建生产版本**
 
 ```bash
 yarn build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+构建产物输出到 `build/` 目录，可通过任意静态文件托管服务部署。
 
-## Deployment
-
-Using SSH:
+**部署到 GitHub Pages**
 
 ```bash
-USE_SSH=true yarn deploy
+yarn deploy
 ```
 
-Not using SSH:
+## 🔍 题解校验
+
+检查题解文件是否包含必需章节（原题链接、时间复杂度、空间复杂度、方法标题）：
 
 ```bash
-GIT_USER=<Your GitHub username> yarn deploy
+python check_leetcode.py
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+## 🛠️ 技术栈
+
+- [Docusaurus v3](https://docusaurus.io/) — 静态站点框架
+- [KaTeX](https://katex.org/) — 数学公式渲染
+- [@easyops-cn/docusaurus-search-local](https://github.com/easyops-cn/docusaurus-search-local) — 本地全文搜索（支持中英文）
+- GitHub Actions — 推送 `main` 分支自动构建并部署
