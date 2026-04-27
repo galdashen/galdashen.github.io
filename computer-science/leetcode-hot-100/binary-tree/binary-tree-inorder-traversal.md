@@ -2,6 +2,9 @@
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # 94. 二叉树的中序遍历
 
 [原题链接](https://leetcode.cn/problems/binary-tree-inorder-traversal/description/?envType=study-plan-v2&envId=top-100-liked)
@@ -64,9 +67,12 @@ class Solution {
 
 ### 方法二：迭代
 
-迭代法一，往左下角一直走到底，到底就往右走一步。
+<Tabs groupId="inorder-iterative-java">
+<TabItem value="method1" label="迭代一" default>
 
-```java title="Java 迭代一"
+往左下角一直走到底，到底就往右走一步。
+
+```java
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<Integer>();
@@ -126,9 +132,16 @@ class Solution {
 }
 ```
 
-迭代法二，弹出即访问，要保证节点 `node, node.left, node.right` 三者的弹出顺序符合遍历要求，通过 `null` 来标记 `node` 的子节点是否入过栈。
+时间复杂度：$O(n)$。
 
-```java title="Java 迭代二"
+空间复杂度：$O(n)$。
+
+</TabItem>
+<TabItem value="method2" label="迭代二">
+
+弹出即访问，要保证节点 `node, node.left, node.right` 三者的弹出顺序符合遍历要求，通过 `null` 来标记 `node` 的子节点是否入过栈。
+
+```java
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<Integer>();
@@ -187,11 +200,12 @@ class Solution {
 }
 ```
 
-两种迭代的复杂度都如下。
-
 时间复杂度：$O(n)$。
 
 空间复杂度：$O(n)$。
+
+</TabItem>
+</Tabs>
 
 ### 方法三：Morris 遍历
 
