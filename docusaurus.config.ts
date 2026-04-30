@@ -86,7 +86,7 @@ const config: Config = {
         indexBlog: false,
         indexPages: false,
         docsDir: ["computer-science"],
-        docsRouteBasePath: ["computer-science"],
+        docsRouteBasePath: ["/"],
         searchBarShortcutHint: false,
         hashed: true,
         language: ["zh", "en"],
@@ -98,7 +98,7 @@ const config: Config = {
       {
         id: "computer-science",
         path: "computer-science",
-        routeBasePath: "computer-science",
+        routeBasePath: "/",
         sidebarPath: "./sidebarsComputerScience.ts",
         remarkPlugins: [remarkMath],
         rehypePlugins: [rehypeKatex],
@@ -119,17 +119,13 @@ const config: Config = {
       },
     },
     navbar: {
-      title: "Home",
+      title: "计算机",
       logo: {
         alt: "My Site Logo",
         src: "https://github.com/galdashen.png",
+        href: "/intro",
       },
       items: [
-        {
-          to: "/computer-science/intro",
-          label: "计算机",
-          position: "left",
-        },
         {
           href: "https://github.com/galdashen",
           label: "GitHub",
