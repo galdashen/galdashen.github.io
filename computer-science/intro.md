@@ -1,11 +1,12 @@
 ---
 sidebar_position: 1
 slug: /
+sidebar_label: 首页
 ---
 
-# 计算机必备基础知识
+# 欢迎访问本站
 
-目前在更新 LeetCode 题解，之后可能会整理八股。
+本站主要用于存放我的学习笔记。目前在更新 LeetCode 题解，之后可能会整理八股。
 
 ## 一、C/C++
 
