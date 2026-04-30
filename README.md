@@ -17,7 +17,7 @@
 npm install
 ```
 
-**启动本地开发服务器**（支持热重载）
+**启动本地开发服务器**
 
 ```bash
 npm start
@@ -35,14 +35,6 @@ npm run build
 
 ```bash
 npm run deploy
-```
-
-## 🔍 题解校验
-
-检查题解文件是否包含必需章节（原题链接、时间复杂度、空间复杂度、方法标题）：
-
-```bash
-python check_leetcode.py
 ```
 
 ## 🛠️ 技术栈
