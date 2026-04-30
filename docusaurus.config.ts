@@ -98,7 +98,7 @@ const config: Config = {
         id: "computer-science",
         path: "computer-science",
         routeBasePath: "/",
-        sidebarPath: "./sidebarsComputerScience.ts",
+        sidebarPath: "./sidebars.ts",
         remarkPlugins: [remarkMath],
         rehypePlugins: [rehypeKatex],
       },

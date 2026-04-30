@@ -20,7 +20,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `src/` — 自定义 React 组件（首页、导航栏、颜色主题切换）
 - `static/` — 静态资源（图片、图标）
 - `docusaurus.config.ts` — Docusaurus 配置（路由、搜索、数学公式、代码高亮等）
-- `sidebarsComputerScience.ts` — 文档侧边栏配置（自动生成）
+- `sidebars.ts` — 文档侧边栏配置（自动生成）
 - `.github/workflows/deploy.yml` — 推送到 main 分支自动构建并部署到 GitHub Pages
 
 ## 题解编写规范
