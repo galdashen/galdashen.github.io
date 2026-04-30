@@ -50,7 +50,7 @@ type ColorThemeNavbarItemProps = {
 
 export default function ColorThemeNavbarItem({
   className,
-}: ColorThemeNavbarItemProps): React.JSX.Element {
+}: ColorThemeNavbarItemProps): React.ReactNode {
   const [themeId, setThemeId] = useState<ThemeId>(DEFAULT_THEME);
 
   useEffect(() => {
