@@ -123,7 +123,6 @@ const config: Config = {
       logo: {
         alt: "My Site Logo",
         src: "https://github.com/galdashen.png",
-        href: "/intro",
       },
       items: [
         {
