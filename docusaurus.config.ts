@@ -85,12 +85,11 @@ const config: Config = {
         indexDocs: true,
         indexBlog: false,
         indexPages: false,
-        docsDir: ["computer-science"],
+        docsDir: ["computer-science"], // 添加新学科改这行和下一行
         docsRouteBasePath: ["/"],
         searchBarShortcutHint: false,
         hashed: true,
         language: ["zh", "en"],
-        docsPluginIdForPreferredVersion: "computer-science",
       },
     ],
     [
@@ -125,6 +124,12 @@ const config: Config = {
         src: "https://github.com/galdashen.png",
       },
       items: [
+        // 添加新学科的格式
+        // {
+        //   to: "/",
+        //   label: "计算机科学",
+        //   position: "left",
+        // },
         {
           href: "https://github.com/galdashen",
           label: "GitHub",
@@ -143,7 +148,6 @@ const config: Config = {
     },
     footer: {
       style: "dark",
-      links: [],
       copyright: `Copyright © ${new Date().getFullYear()} galdashen.`,
     },
     prism: {
