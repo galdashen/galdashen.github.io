@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgaldashen_github_io=self.webpackChunkgaldashen_github_io||[]).push([["1668"],{6569(e,s,a){a.r(s),a.d(s,{default:()=>i});var r=a(4848);a(6540);var u=a(4164),h=a(4308),n=a(8287),t=a(2831),c=a(2855);function i(e){return(0,r.jsx)(h.e3,{className:(0,u.A)(n.G.wrapper.docsPages),children:(0,r.jsx)(c.A,{children:(0,t.v)(e.route.routes)})})}}}]);

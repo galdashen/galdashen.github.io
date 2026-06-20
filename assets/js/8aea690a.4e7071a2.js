@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgaldashen_github_io=self.webpackChunkgaldashen_github_io||[]).push([["1699"],{1396(e){e.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"computer-science"}')}}]);
