@@ -6,33 +6,9 @@ sidebar_position: 5
 
 [原题链接](https://leetcode.cn/problems/linked-list-cycle-ii/description/?envType=study-plan-v2&envId=top-100-liked)
 
-给定一个链表的头节点 `head`，返回链表开始入环的第一个节点。如果链表无环，则返回 `null`。
+给定一个链表，返回链表开始入环的第一个节点。如果链表无环，则返回 `null`。
 
-### 方法一：哈希表
-
-```java title="Java"
-public class Solution {
-    public ListNode detectCycle(ListNode head) {
-        ListNode pos = head;
-        Set<ListNode> visited = new HashSet<ListNode>();
-        while (pos != null) {
-            if (visited.contains(pos)) {
-                return pos;
-            } else {
-                visited.add(pos);
-            }
-            pos = pos.next;
-        }
-        return null;
-    }
-}
-```
-
-时间复杂度：$O(n)$。
-
-空间复杂度：$O(n)$。
-
-### 方法二：快慢指针
+### 解法：快慢指针
 
 用快慢指针可以判断是否有环，但这题还需找到入环节点，这要求我们分析快慢指针相遇时与入环节点的距离。
 
@@ -44,14 +20,11 @@ public class Solution {
 public class Solution {
     public ListNode detectCycle(ListNode head) {
         if (head == null || head.next == null) return null;
-        ListNode slow = head.next;
-        ListNode fast = head.next.next;
+        ListNode slow = head.next, fast = head.next.next;
         while (slow != fast) {
-            if (fast == null || fast.next == null) {
-                return null;
-            }
-            slow = slow.next;
+            if (fast == null || fast.next == null) return null;
             fast = fast.next.next;
+            slow = slow.next;
         }
         ListNode p = head;
         while (p != slow) {
