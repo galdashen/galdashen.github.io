@@ -28,8 +28,8 @@ class Solution {
                 l2 = l2.next;
             }
             curr.next = new ListNode(carry % 10);
-            carry = carry / 10;
             curr = curr.next;
+            carry /= 10;
         }
         return dummy.next;
     }
