@@ -13,13 +13,11 @@ sidebar_position: 9
 ```java title="Java"
 class Solution {
     public ListNode swapPairs(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        ListNode newHead = head.next;
-        head.next = swapPairs(newHead.next);
-        newHead.next = head;
-        return newHead;
+        if (head == null || head.next == null) return head;
+        ListNode temp = head.next;
+        head.next = swapPairs(temp.next);
+        temp.next = head;
+        return temp;
     }
 }
 ```
@@ -33,18 +31,16 @@ class Solution {
 ```java title="Java"
 class Solution {
     public ListNode swapPairs(ListNode head) {
-        ListNode dummyHead = new ListNode(0);
-        dummyHead.next = head;
-        ListNode temp = dummyHead;
-        while (temp.next != null && temp.next.next != null) {
-            ListNode node1 = temp.next;
-            ListNode node2 = temp.next.next;
-            temp.next = node2;
-            node1.next = node2.next;
-            node2.next = node1;
-            temp = node1;
+        ListNode dummy = new ListNode(0, head);
+        ListNode curr = dummy;
+        while (curr.next != null && curr.next.next != null) {
+            ListNode temp = curr.next;
+            curr.next = temp.next;
+            temp.next = curr.next.next;
+            curr.next.next = temp;
+            curr = temp;
         }
-        return dummyHead.next;
+        return dummy.next;
     }
 }
 ```
