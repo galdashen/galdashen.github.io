@@ -8,7 +8,7 @@ sidebar_position: 3
 
 给你一棵二叉树的根节点 `root`，翻转这棵二叉树，并返回其根节点。
 
-### 解法：递归
+### 方法一：递归
 
 翻转整个二叉树等于分别翻转左右子树再交换根节点的左右指针，或者交换每个节点的左右指针。
 
@@ -20,6 +20,31 @@ class Solution {
         TreeNode right = invertTree(root.right);
         root.left = right;
         root.right = left;
+        return root;
+    }
+}
+```
+
+时间复杂度：$O(n)$。
+
+空间复杂度：$O(n)$。
+
+### 方法二：迭代
+
+```java title="Java"
+class Solution {
+    public TreeNode invertTree(TreeNode root) {
+        if (root == null) return null;
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            TreeNode temp = node.left;
+            node.left = node.right;
+            node.right = temp;
+            if (node.left != null) stack.push(node.left);
+            if (node.right != null) stack.push(node.right);
+        }
         return root;
     }
 }
