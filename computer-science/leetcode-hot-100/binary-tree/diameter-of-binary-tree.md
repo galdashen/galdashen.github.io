@@ -14,22 +14,22 @@ sidebar_position: 5
 
 ### 解法：深度优先搜索
 
-求直径等价于求每个节点的左右子树的高度和，然后取最大值。函数 `depth` 用来求树的高度，顺带更新直径。
+求直径等价于求每个节点的左右子树的高度和，然后取最大值。
 
 ```java title="Java"
 class Solution {
     int ans;
     public int diameterOfBinaryTree(TreeNode root) {
         ans = 0;
-        depth(root);
+        dfs(root);
         return ans;
     }
-    public int depth(TreeNode node) {
-        if (node == null) return 0;
-        int L = depth(node.left);
-        int R = depth(node.right);
-        ans = Math.max(ans, L + R);
-        return Math.max(L, R) + 1;
+    private int dfs(TreeNode root) {
+        if (root == null) return 0;
+        int left = dfs(root.left);
+        int right = dfs(root.right);
+        ans = Math.max(left + right, ans);
+        return Math.max(left, right) + 1;
     }
 }
 ```
