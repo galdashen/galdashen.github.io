@@ -14,35 +14,22 @@ sidebar_position: 15
 
 ### 解法：递归
 
-`maxGain(node)` 求的是从节点 `node` 开始，向下的单条路径的最大和。最大路径和等价于 `node.val` 加上左右子树的非负 `maxGain`。
+`dfs` 返回由该节点向下的路径的最大和。
 
 ```java title="Java"
 class Solution {
-    int maxSum = Integer.MIN_VALUE;
-
+    private int ans;
     public int maxPathSum(TreeNode root) {
-        maxGain(root);
-        return maxSum;
+        ans = Integer.MIN_VALUE;
+        dfs(root);
+        return ans;
     }
-
-    public int maxGain(TreeNode node) {
-        if (node == null) {
-            return 0;
-        }
-
-        // 递归计算左右子节点的最大贡献值
-        // 只有在最大贡献值大于 0 时，才会选取对应子节点
-        int leftGain = Math.max(maxGain(node.left), 0);
-        int rightGain = Math.max(maxGain(node.right), 0);
-
-        // 节点的最大路径和取决于该节点的值与该节点的左右子节点的最大贡献值
-        int priceNewpath = node.val + leftGain + rightGain;
-
-        // 更新答案
-        maxSum = Math.max(maxSum, priceNewpath);
-
-        // 返回节点的最大贡献值
-        return node.val + Math.max(leftGain, rightGain);
+    private int dfs(TreeNode node) {
+        if (node == null) return 0;
+        int left = Math.max(dfs(node.left), 0);
+        int right = Math.max(dfs(node.right), 0);
+        ans = Math.max(ans, left + right + node.val);
+        return Math.max(left, right) + node.val;
     }
 }
 ```
