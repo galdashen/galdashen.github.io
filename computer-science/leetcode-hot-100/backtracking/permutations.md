@@ -10,35 +10,25 @@ sidebar_position: 1
 
 ### 解法：回溯
 
-`backtrack` 函数的参数 `first` 表示当前递归到第几个数了。每当 `first` 和 `n` 相等时，说明已经产生了一个全排列，将其加入结果中。
+`backtrack` 函数的参数 `len` 表示当前递归到第几个数了。每当 `len` 和 `n` 相等时，说明已经产生了一个全排列，将其加入结果中。
 
 ```java title="Java"
 class Solution {
+    private List<List<Integer>> res;
+    private List<Integer> path;
     public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
-
-        List<Integer> output = new ArrayList<Integer>();
-        for (int num : nums) {
-            output.add(num);
-        }
-
-        int n = nums.length;
-        backtrack(n, output, res, 0);
+        res = new ArrayList<>();
+        path = new ArrayList<>();
+        for (int num : nums) path.add(num);
+        backtrack(0);
         return res;
     }
-
-    public void backtrack(int n, List<Integer> output, List<List<Integer>> res, int first) {
-        // 所有数都填完了
-        if (first == n) {
-            res.add(new ArrayList<Integer>(output));
-        }
-        for (int i = first; i < n; i++) {
-            // 动态维护数组
-            Collections.swap(output, first, i);
-            // 继续递归填下一个数
-            backtrack(n, output, res, first + 1);
-            // 撤销操作
-            Collections.swap(output, first, i);
+    private void backtrack(int len) {
+        if (len == path.size()) res.add(new ArrayList<>(path));
+        for (int i = len; i < path.size(); i++) {
+            Collections.swap(path, len, i);
+            backtrack(len + 1);
+            Collections.swap(path, len, i);
         }
     }
 }
