@@ -40,6 +40,33 @@ class Solution {
 }
 ```
 
+或者
+
+```java title="Java"
+class Solution {
+    private List<List<Integer>> ans;
+    private List<Integer> combine;
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        ans = new ArrayList<>();
+        combine = new ArrayList<>();
+        dfs(candidates, target, 0);
+        return ans;
+    }
+    private void dfs(int[] candidates, int target, int idx) {
+        if (target == 0) {
+            ans.add(new ArrayList<>(combine));
+            return;
+        }
+        if (target < 0) return;
+        for (int i = idx; i < candidates.length; i++) {
+            combine.add(candidates[i]);
+            dfs(candidates, target - candidates[i], i);
+            combine.remove(combine.size() - 1);
+        }
+    }
+}
+```
+
 时间复杂度：$O(S)$，其中 $S$ 为所有可行解的长度之和。
 
 空间复杂度：$O(target)$。
