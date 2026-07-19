@@ -10,29 +10,30 @@ sidebar_position: 5
 
 ### 解法：回溯法
 
-右括号的数量不多于左括号。
-
 ```java title="Java"
 class Solution {
-    private List<String> ans = new ArrayList<>();
+    private List<String> ans;
+    private StringBuilder cur;
     public List<String> generateParenthesis(int n) {
-        backtrack(new StringBuilder(), 0, 0, n);
+        ans = new ArrayList<>();
+        cur = new StringBuilder();
+        backtrack(0, 0, n);
         return ans;
     }
-    private void backtrack(StringBuilder curr, int open, int close, int max) {
-        if (curr.length() == max * 2) {
-            ans.add(curr.toString());
+    private void backtrack(int open, int close, int max) {
+        if (cur.length() == max * 2) {
+            ans.add(cur.toString());
             return;
         }
         if (open < max) {
-            curr.append('(');
-            backtrack(curr, open + 1, close, max);
-            curr.deleteCharAt(curr.length() - 1);
+            cur.append('(');
+            backtrack(open + 1, close, max);
+            cur.deleteCharAt(cur.length() - 1);
         }
         if (close < open) {
-            curr.append(')');
-            backtrack(curr, open, close + 1, max);
-            curr.deleteCharAt(curr.length() - 1);
+            cur.append(')');
+            backtrack(open, close + 1, max);
+            cur.deleteCharAt(cur.length() - 1);
         }
     }
 }
