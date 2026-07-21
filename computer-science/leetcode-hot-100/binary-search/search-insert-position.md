@@ -12,7 +12,7 @@ sidebar_position: 1
 
 ### 解法：二分查找
 
-希望返回的 `ans` 左边的数都小于 `target`，位置 `ans` 和右边的数都大于等于 `target`。
+让 `left` 左边的数都小于 `target`，`right` 右边的数都大于 `target`。
 
 ```java title="Java"
 class Solution {
@@ -21,10 +21,12 @@ class Solution {
         int left = 0, right = n - 1;
         while (left <= right) {
             int mid = (right - left) / 2 + left;
-            if (target <= nums[mid]) {
-                right = mid - 1; // right 右边都是大于等于 target 的数
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] < target) {
+                left = mid + 1;
             } else {
-                left = mid + 1; // left 左边都是小于 target 的数
+                right = mid - 1;
             }
         }
         return left;
