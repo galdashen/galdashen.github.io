@@ -21,17 +21,16 @@ sidebar_position: 2
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
         int rowIndex = binarySearchFirstColumn(matrix, target);
-        if (rowIndex < 0) {
-            return false;
-        }
+        if (rowIndex < 0) return false;
         return binarySearchRow(matrix[rowIndex], target);
     }
-
-    public int binarySearchFirstColumn(int[][] matrix, int target) {
+    private int binarySearchFirstColumn(int[][] matrix, int target) {
         int low = 0, high = matrix.length - 1;
         while (low <= high) {
             int mid = (high - low) / 2 + low;
-            if (matrix[mid][0] <= target) {
+            if (matrix[mid][0] == target) {
+                return mid;
+            } else if (matrix[mid][0] < target) {
                 low = mid + 1;
             } else {
                 high = mid - 1;
@@ -39,8 +38,7 @@ class Solution {
         }
         return high;
     }
-
-    public boolean binarySearchRow(int[] row, int target) {
+    private boolean binarySearchRow(int[] row, int target) {
         int low = 0, high = row.length - 1;
         while (low <= high) {
             int mid = (high - low) / 2 + low;
@@ -73,12 +71,12 @@ class Solution {
         while (low <= high) {
             int mid = (high - low) / 2 + low;
             int x = matrix[mid / n][mid % n];
-            if (x < target) {
-                low = mid + 1;
-            } else if (x > target) {
-                high = mid - 1;
-            } else {
+            if (x == target) {
                 return true;
+            } else if (x < target) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
             }
         }
         return false;
