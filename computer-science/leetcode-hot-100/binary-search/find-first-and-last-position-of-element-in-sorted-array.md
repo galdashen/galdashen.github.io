@@ -14,7 +14,7 @@ sidebar_position: 3
 
 ### 解法：二分查找
 
-把数组分为三个部分，第一部分是小于 `target` 的元素，第二部分是等于 `target` 的元素，第三部分是大于 `target` 的元素。为了得到第一部分可以通过二分查找将数组划分为小于 `target` 和大于等于 `target` 的两部分；为了得到第三部分可以仿照上一步写一个新的二分查找将数组划分为小于等于 `target` 和大于 `target` 的两部分，也可以直接利用上一个二分查找将数组划分为小于等于 `target + 1` 和大于等于 `target + 1` 的两部分。
+把数组分为三个部分，第一部分是小于 `target` 的元素，第二部分是等于 `target` 的元素，第三部分是大于 `target` 的元素。为了得到第一部分可以通过二分查找将数组划分为小于 `target` 和大于等于 `target` 的两部分；为了得到第三部分可以仿照上一步写一个新的二分查找将数组划分为小于等于 `target` 和大于 `target` 的两部分，也可以直接利用上一个二分查找将数组划分为小于 `target + 1` 和大于等于 `target + 1` 的两部分。
 
 ```java title="Java"
 class Solution {
@@ -23,7 +23,6 @@ class Solution {
         int rightIndex = binarySearch(nums, target + 1) - 1;
         return leftIndex <= rightIndex ? new int[] {leftIndex, rightIndex} : new int[]{-1, -1};
     }
-
     private int binarySearch(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
         while (left <= right) {
