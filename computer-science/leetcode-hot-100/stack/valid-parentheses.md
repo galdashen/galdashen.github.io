@@ -34,9 +34,8 @@ class Solution {
             } else {
                 if (stack.isEmpty() || pairs.get(stack.peek()) != ch) {
                     return false;
-                } else {
-                    stack.pop();
                 }
+                stack.pop();
             }
         }
         return stack.isEmpty();
