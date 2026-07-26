@@ -18,6 +18,9 @@ sidebar_position: 1
 
 ```java title="Java"
 class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        return quickselect(nums, 0, nums.length - 1, nums.length - k);
+    }
     private int quickselect(int[] nums, int l, int r, int k) {
         if (l == r) return nums[k];
         int pivot = nums[l], i = l, j = r;
@@ -31,9 +34,6 @@ class Solution {
         if (k < i) return quickselect(nums, l, i - 1, k);
         if (k == i) return nums[i];
         return quickselect(nums, i + 1, r, k);
-    }
-    public int findKthLargest(int[] nums, int k) {
-        return quickselect(nums, 0, nums.length - 1, nums.length - k);
     }
 }
 ```
@@ -53,19 +53,16 @@ class Solution {
         buildMaxHeap(nums, heapSize);
         for (int i = nums.length - 1; i >= nums.length - k + 1; --i) {
             swap(nums, 0, i);
-            --heapSize;
-            maxHeapify(nums, 0, heapSize);
+            maxHeapify(nums, 0, --heapSize);
         }
         return nums[0];
     }
-
-    public void buildMaxHeap(int[] a, int heapSize) {
+    private void buildMaxHeap(int[] a, int heapSize) {
         for (int i = heapSize / 2 - 1; i >= 0; --i) {
             maxHeapify(a, i, heapSize);
         }
     }
-
-    public void maxHeapify(int[] a, int i, int heapSize) {
+    private void maxHeapify(int[] a, int i, int heapSize) {
         int l = i * 2 + 1, r = i * 2 + 2, largest = i;
         if (l < heapSize && a[l] > a[largest]) {
             largest = l;
@@ -78,8 +75,7 @@ class Solution {
             maxHeapify(a, largest, heapSize);
         }
     }
-
-    public void swap(int[] a, int i, int j) {
+    private void swap(int[] a, int i, int j) {
         int temp = a[i];
         a[i] = a[j];
         a[j] = temp;
