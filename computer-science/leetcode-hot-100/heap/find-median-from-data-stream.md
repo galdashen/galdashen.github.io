@@ -23,14 +23,12 @@ sidebar_position: 3
 
 ```java title="Java"
 class MedianFinder {
-    PriorityQueue<Integer> queMin;
-    PriorityQueue<Integer> queMax;
-
+    private PriorityQueue<Integer> queMin;
+    private PriorityQueue<Integer> queMax;
     public MedianFinder() {
-        queMin = new PriorityQueue<Integer>((a, b) -> (b - a));
-        queMax = new PriorityQueue<Integer>((a, b) -> (a - b));
+        queMin = new PriorityQueue<>((a, b) -> (b - a));
+        queMax = new PriorityQueue<>((a, b) -> (a - b));
     }
-
     public void addNum(int num) {
         if (queMin.size() == queMax.size()) {
             queMax.offer(num);
@@ -40,11 +38,8 @@ class MedianFinder {
             queMax.offer(queMin.poll());
         }
     }
-
     public double findMedian() {
-        if (queMin.size() > queMax.size()) {
-            return queMin.peek();
-        }
+        if (queMin.size() > queMax.size()) return queMin.peek();
         return (queMin.peek() + queMax.peek()) / 2.0;
     }
 }
