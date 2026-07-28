@@ -21,10 +21,10 @@ class Solution {
             if (i <= rightmost) {
                 rightmost = Math.max(rightmost, i + nums[i]);
             } else {
-                break;
+                return false;
             }
         }
-        return rightmost >= n - 1;
+        return true;
     }
 }
 ```
