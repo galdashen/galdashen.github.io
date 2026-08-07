@@ -16,28 +16,15 @@ sidebar_position: 3
 
 ```java title="Java"
 class Solution {
-    private List<String> ans = new ArrayList<>();
-    private StringBuilder path = new StringBuilder();
-
-    private static final String[] MAPPING = {
-            "", // 0
-            "", // 1
-            "abc", // 2
-            "def", // 3
-            "ghi", // 4
-            "jkl", // 5
-            "mno", // 6
-            "pqrs", // 7
-            "tuv", // 8
-            "wxyz" // 9
-    };
-
+    private static final String[] MAPPING = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    private List<String> ans;
+    private StringBuilder path;
     public List<String> letterCombinations(String digits) {
-        if (digits.length() == 0) return ans;
+        ans = new ArrayList<>();
+        path = new StringBuilder();
         backtrack(digits, 0);
         return ans;
     }
-
     private void backtrack(String digits, int index) {
         if (index == digits.length()) {
             ans.add(path.toString());

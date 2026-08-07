@@ -20,12 +20,8 @@ class Solution {
         int n = nums.length;
         int p0 = 0, p2 = n - 1;
         for (int i = 0; i <= p2; i++) {
-            while (nums[i] == 2 && i <= p2) { // 注意：这里要用 while 循环，因为交换过来的元素可能还是 2
-                swap(nums, i, p2--);
-            }
-            if (nums[i] == 0) { // 注意：先判断 2 再判断 0，因为交换过来的元素可能是 0
-                swap(nums, i, p0++);
-            }
+            while (nums[i] == 2 && i < p2) swap(nums, i, p2--);
+            if (nums[i] == 0) swap(nums, i, p0++);
         }
     }
     private void swap(int[] nums, int i, int j) {

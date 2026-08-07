@@ -67,7 +67,7 @@ class Solution {
         }
         return s.substring(start, start + maxLen);
     }
-    public int expandAroundCenter(String s, int left, int right) {
+    private int expandAroundCenter(String s, int left, int right) {
         while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
             --left;
             ++right;

@@ -23,14 +23,9 @@ class Solution {
     public boolean isValidBST(TreeNode root) {
         return helper(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
-
-    public boolean helper(TreeNode node, long lower, long upper) {
-        if (node == null) {
-            return true;
-        }
-        if (node.val <= lower || node.val >= upper) {
-            return false;
-        }
+    private boolean helper(TreeNode node, long lower, long upper) {
+        if (node == null) return true;
+        if (node.val <= lower || node.val >= upper) return false;
         return helper(node.left, lower, node.val) && helper(node.right, node.val, upper);
     }
 }
@@ -44,24 +39,17 @@ class Solution {
 
 ```java title="Java"
 class Solution {
+    private long prev;
     public boolean isValidBST(TreeNode root) {
-        Deque<TreeNode> stack = new LinkedList<TreeNode>();
-        double inorder = -Double.MAX_VALUE;
-
-        while (!stack.isEmpty() || root != null) {
-            while (root != null) {
-                stack.push(root);
-                root = root.left;
-            }
-            root = stack.pop();
-              // 如果中序遍历得到的节点的值小于等于前一个 inorder，说明不是二叉搜索树
-            if (root.val <= inorder) {
-                return false;
-            }
-            inorder = root.val;
-            root = root.right;
-        }
-        return true;
+        prev = Long.MIN_VALUE;
+        return helper(root);
+    }
+    private boolean helper(TreeNode node) {
+        if (node == null) return true;
+        if (!helper(node.left)) return false;
+        if (node.val <= prev) return false;
+        prev = node.val;
+        return helper(node.right);
     }
 }
 ```

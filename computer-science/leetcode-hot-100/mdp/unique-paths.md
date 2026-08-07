@@ -17,11 +17,7 @@ sidebar_position: 1
 ```java title="Java"
 class Solution {
     public int uniquePaths(int m, int n) {
-        if (m < n) {
-            int temp = m;
-            m = n;
-            n = temp;
-        }
+        if (n < m) return uniquePaths(n, m);
         int[] f = new int[n];
         for (int i = 0; i < n; ++i) {
             f[i] = 1;
@@ -47,11 +43,7 @@ class Solution {
 ```java title="Java"
 class Solution {
     public int uniquePaths(int m, int n) {
-        if (n < m) {
-            int temp = m;
-            m = n;
-            n = temp;
-        }
+        if (n < m) return uniquePaths(n, m);
         long ans = 1;
         for (int x = n, y = 1; y < m; ++x, ++y) {
             ans = ans * x / y;

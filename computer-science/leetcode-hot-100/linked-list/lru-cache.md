@@ -18,7 +18,7 @@ sidebar_position: 14
 
 ### 解法：哈希表 + 双向链表
 
-为了实现 $O(1)$ 的查找和修改，需要用哈希。为了实现 $O(1)$ 的头部插入和尾部删除，需要用双向链表。
+为了实现 $O(1)$ 的查找和修改，需要用哈希。为了实现上次使用时间的排序，需要链表。为了实现的结点的移动，需要用双向链表。
 
 ```java title="Java"
 class LRUCache {
@@ -27,19 +27,16 @@ class LRUCache {
         int value;
         DLinkedNode prev;
         DLinkedNode next;
-        public DLinkedNode() {
-        }
+        public DLinkedNode() {}
         public DLinkedNode(int key, int value) {
             this.key = key;
             this.value = value;
         }
     }
-
     private int capacity;
     private int size;
     private Map<Integer, DLinkedNode> map;
     private DLinkedNode dummy;
-
     public LRUCache(int capacity) {
         this.capacity = capacity;
         size = 0;
@@ -48,22 +45,19 @@ class LRUCache {
         dummy.prev = dummy;
         dummy.next = dummy;
     }
-
     public int get(int key) {
         DLinkedNode node = map.get(key);
-        if (node == null)
-            return -1;
+        if (node == null) return -1;
         removeNode(node);
         addToHead(node);
         return node.value;
     }
-
     public void put(int key, int value) {
         DLinkedNode node = map.get(key);
         if (node == null) {
-            DLinkedNode newNode = new DLinkedNode(key, value);
-            map.put(key, newNode);
-            addToHead(newNode);
+            node = new DLinkedNode(key, value);
+            map.put(key, node);
+            addToHead(node);
             size++;
             if (size > capacity) {
                 map.remove(dummy.prev.key);
@@ -76,12 +70,10 @@ class LRUCache {
             addToHead(node);
         }
     }
-
     private void removeNode(DLinkedNode node) {
         node.prev.next = node.next;
         node.next.prev = node.prev;
     }
-
     private void addToHead(DLinkedNode node) {
         node.prev = dummy;
         node.next = dummy.next;

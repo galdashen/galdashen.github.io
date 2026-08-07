@@ -12,7 +12,7 @@ sidebar_position: 6
 
 ### 解法：划分数组二分查找
 
-将 `nums1` 和 `nums2` 划分为两部分，使得左半部分和右半部分的数量一样多。
+将 `nums1` 和 `nums2` 都划分为左右两部分，使得左半部分和右半部分的数量一样多。
 
 ```java title="Java"
 class Solution {

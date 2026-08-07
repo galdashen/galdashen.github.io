@@ -17,14 +17,9 @@ class Solution {
     public boolean isSymmetric(TreeNode root) {
         return check(root.left, root.right);
     }
-
-    public boolean check(TreeNode p, TreeNode q) {
-        if (p == null && q == null) {
-            return true;
-        }
-        if (p == null || q == null) {
-            return false;
-        }
+    private boolean check(TreeNode p, TreeNode q) {
+        if (p == null && q == null) return true;
+        if (p == null || q == null) return false;
         return p.val == q.val && check(p.left, q.right) && check(p.right, q.left);
     }
 }
@@ -36,33 +31,23 @@ class Solution {
 
 ### 方法二：迭代
 
-用迭代的方法检查两颗树是否相互对称。自身对称就是自己和自己相互对称。
-
 ```java title="Java"
 class Solution {
     public boolean isSymmetric(TreeNode root) {
-        return check(root, root);
-    }
-
-    public boolean check(TreeNode u, TreeNode v) {
-        Queue<TreeNode> q = new LinkedList<TreeNode>();
-        q.offer(u);
-        q.offer(v);
-        while (!q.isEmpty()) {
-            u = q.poll();
-            v = q.poll();
-            if (u == null && v == null) {
-                continue;
-            }
-            if ((u == null || v == null) || (u.val != v.val)) {
-                return false;
-            }
-
-            q.offer(u.left);
-            q.offer(v.right);
-
-            q.offer(u.right);
-            q.offer(v.left);
+        Queue<TreeNode> queue = new LinkedList<>();
+        TreeNode p = root, q = root;
+        queue.offer(p);
+        queue.offer(q);
+        while (!queue.isEmpty()) {
+            p = queue.poll();
+            q = queue.poll();
+            if (p == null && q == null) continue;
+            if (p == null || q == null) return false;
+            if (p.val != q.val) return false;
+            queue.offer(p.left);
+            queue.offer(q.right);
+            queue.offer(p.right);
+            queue.offer(q.left);
         }
         return true;
     }

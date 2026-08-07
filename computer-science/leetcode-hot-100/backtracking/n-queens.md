@@ -18,49 +18,46 @@ sidebar_position: 8
 
 ```java title="Java"
 class Solution {
+    private List<List<String>> ans;
+    private int[] queens;
+    private boolean[] columns;
+    private boolean[] diagonals1;
+    private boolean[] diagonals2;
     public List<List<String>> solveNQueens(int n) {
-        List<List<String>> solutions = new ArrayList<List<String>>();
-        int[] queens = new int[n];
+        ans = new ArrayList<List<String>>();
+        queens = new int[n];
         Arrays.fill(queens, -1);
-        boolean[] columns = new boolean[n];
-        boolean[] diagonals1 = new boolean[2 * n - 1];
-        boolean[] diagonals2 = new boolean[2 * n - 1];
-        backtrack(solutions, queens, n, 0, columns, diagonals1, diagonals2);
-        return solutions;
+        columns = new boolean[n];
+        diagonals1 = new boolean[2 * n - 1];
+        diagonals2 = new boolean[2 * n - 1];
+        backtrack(n, 0);
+        return ans;
     }
-
-    public void backtrack(List<List<String>> solutions, int[] queens, int n, int row, boolean[] columns, boolean[] diagonals1, boolean[] diagonals2) {
+    private void backtrack(int n, int row) {
         if (row == n) {
             List<String> board = generateBoard(queens, n);
-            solutions.add(board);
+            ans.add(board);
             return;
         }
         for (int i = 0; i < n; i++) {
-            if (columns[i] == true) {
-                continue;
-            }
+            if (columns[i] == true) continue;
             int diagonal1 = row - i + n - 1;
-            if (diagonals1[diagonal1] == true) {
-                continue;
-            }
+            if (diagonals1[diagonal1] == true) continue;
             int diagonal2 = row + i;
-            if (diagonals2[diagonal2] == true) {
-                continue;
-            }
+            if (diagonals2[diagonal2] == true) continue;
             queens[row] = i;
             columns[i] = true;
             diagonals1[diagonal1] = true;
             diagonals2[diagonal2] = true;
-            backtrack(solutions, queens, n, row + 1, columns, diagonals1, diagonals2);
+            backtrack(n, row + 1);
             queens[row] = -1;
             columns[i] = false;
             diagonals1[diagonal1] = false;
             diagonals2[diagonal2] = false;
         }
     }
-
-    public List<String> generateBoard(int[] queens, int n) {
-        List<String> board = new ArrayList<String>();
+    private List<String> generateBoard(int[] queens, int n) {
+        List<String> board = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             char[] row = new char[n];
             Arrays.fill(row, '.');

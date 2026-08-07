@@ -6,7 +6,7 @@ sidebar_position: 2
 
 [原题链接](https://leetcode.cn/problems/merge-intervals/description/?envType=study-plan-v2&envId=top-100-liked)
 
-给定若干个区间 `int[][] intervals`，其中单个区间为 `intervals[i] = [start_i, end_i]`，请合并所有的重叠区间，然后返回合并后的结果。（该结果内的区间互不重叠且刚好覆盖原来的所有区间）
+给定若干个区间，请合并所有的重叠区间，然后返回合并后的结果。
 
 ### 解法：排序
 
@@ -15,24 +15,16 @@ sidebar_position: 2
 ```java title="Java"
 class Solution {
     public int[][] merge(int[][] intervals) {
-        if (intervals.length == 0) {
-            return new int[0][2];
-        }
-        Arrays.sort(intervals, new Comparator<int[]>() {
-            public int compare(int[] interval1, int[] interval2) {
-                return interval1[0] - interval2[0];
-            }
-        });
-        List<int[]> merged = new ArrayList<int[]>();
-        for (int i = 0; i < intervals.length; ++i) {
-            int L = intervals[i][0], R = intervals[i][1];
-            if (merged.size() == 0 || merged.get(merged.size() - 1)[1] < L) {
-                merged.add(new int[]{L, R});
+        Arrays.sort(intervals, (interval1, interval2) -> interval1[0] - interval2[0]);
+        List<int[]> ans = new ArrayList<>();
+        for (int[] interval : intervals) {
+            if (ans.size() > 0 && ans.getLast()[1] >= interval[0]) {
+                ans.getLast()[1] = Math.max(ans.getLast()[1], interval[1]);
             } else {
-                merged.get(merged.size() - 1)[1] = Math.max(merged.get(merged.size() - 1)[1], R);
+                ans.add(interval);
             }
         }
-        return merged.toArray(new int[merged.size()][]);
+        return ans.toArray(new int[ans.size()][]);
     }
 }
 ```

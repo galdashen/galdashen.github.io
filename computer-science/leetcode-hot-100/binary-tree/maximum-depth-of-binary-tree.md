@@ -30,23 +30,16 @@ class Solution {
 ```java title="Java"
 class Solution {
     public int maxDepth(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        if (root == null) return 0;
+        Queue<TreeNode> queue = new ArrayDeque<>();
         queue.offer(root);
         int ans = 0;
         while (!queue.isEmpty()) {
             int size = queue.size();
-            while (size > 0) {
+            for (int i = 0; i < size; i++) {
                 TreeNode node = queue.poll();
-                if (node.left != null) {
-                    queue.offer(node.left);
-                }
-                if (node.right != null) {
-                    queue.offer(node.right);
-                }
-                size--;
+                if (node.left != null) queue.offer(node.left);
+                if (node.right != null) queue.offer(node.right);
             }
             ans++;
         }

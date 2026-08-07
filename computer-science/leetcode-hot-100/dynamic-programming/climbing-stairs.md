@@ -14,15 +14,14 @@ sidebar_position: 1
 
 ```java title="Java"
 class Solution {
-public:
-    int climbStairs(int n) {
-        int p = 0, q = 0, r = 1;
-        for (int i = 1; i <= n; ++i) {
-            p = q;
-            q = r;
-            r = p + q;
+    public int climbStairs(int n) {
+        int a = 1, b = 2;
+        for (int i = 2; i <= n; i++) {
+            int c = a + b;
+            a = b;
+            b = c;
         }
-        return r;
+        return a;
     }
 }
 ```
@@ -42,8 +41,7 @@ public class Solution {
         int[][] res = pow(q, n);
         return res[0][0];
     }
-
-    public int[][] pow(int[][] a, int n) {
+    private int[][] pow(int[][] a, int n) {
         int[][] ret = {{1, 0}, {0, 1}};
         while (n > 0) {
             if ((n & 1) == 1) {
@@ -54,8 +52,7 @@ public class Solution {
         }
         return ret;
     }
-
-    public int[][] multiply(int[][] a, int[][] b) {
+    private int[][] multiply(int[][] a, int[][] b) {
         int[][] c = new int[2][2];
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {

@@ -26,33 +26,23 @@ sidebar_position: 4
 ```java title="Java"
 class Solution {
     public void nextPermutation(int[] nums) {
-        int i = nums.length - 2;
-        while (i >= 0 && nums[i] >= nums[i + 1]) {
-            i--;
-        }
-        if (i >= 0) {
+        int i = nums.length - 1;
+        while (i > 0 && nums[i - 1] >= nums[i]) i--;
+        if (i > 0) {
             int j = nums.length - 1;
-            while (j >= 0 && nums[i] >= nums[j]) {
-                j--;
-            }
-            swap(nums, i, j);
+            while (j >= i && nums[i - 1] >= nums[j]) j--;
+            swap(nums, i - 1, j);
         }
-        reverse(nums, i + 1);
+        reverse(nums, i);
     }
-
-    public void swap(int[] nums, int i, int j) {
+    private void swap(int[] nums, int i, int j) {
         int temp = nums[i];
         nums[i] = nums[j];
         nums[j] = temp;
     }
-
-    public void reverse(int[] nums, int start) {
+    private void reverse(int[] nums, int start) {
         int left = start, right = nums.length - 1;
-        while (left < right) {
-            swap(nums, left, right);
-            left++;
-            right--;
-        }
+        while (left < right) swap(nums, left++, right--);
     }
 }
 ```

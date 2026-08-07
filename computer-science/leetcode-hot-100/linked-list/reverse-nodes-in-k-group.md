@@ -6,11 +6,37 @@ sidebar_position: 10
 
 [原题链接](https://leetcode.cn/problems/reverse-nodes-in-k-group/description/?envType=study-plan-v2&envId=top-100-liked)
 
-给你链表的头节点 `head`，每 `k` 个节点一组进行翻转，请你返回修改后的链表。
+`k` 个一组翻转链表。
 
-`k` 是一个正整数，它的值小于或等于链表的长度。如果节点总数不是 `k` 的整数倍，那么请将最后剩余的节点保持原有顺序。
+### 方法一：递归
 
-### 解法：模拟
+```java title="Java"
+class Solution {
+    public ListNode reverseKGroup(ListNode head, int k) {
+        ListNode p = head;
+        for (int i = 0; i < k; i++) {
+            if (p == null) return head;
+            p = p.next;
+        }
+        ListNode prev = null;
+        ListNode curr = head;
+        for (int i = 0; i < k; i++) {
+            ListNode temp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = temp;
+        }
+        head.next = reverseKGroup(p, k);
+        return prev;
+    }
+}
+```
+
+时间复杂度：$O(n)$。
+
+空间复杂度：$O(n/k)$。
+
+### 方法二：模拟
 
 ```java title="Java"
 class Solution {

@@ -15,10 +15,10 @@ sidebar_position: 4
 ```java title="Java"
 class Solution {
     public int[] dailyTemperatures(int[] temperatures) {
-        int length = temperatures.length;
-        int[] ans = new int[length];
-        Deque<Integer> stack = new LinkedList<Integer>();
-        for (int i = 0; i < length; i++) {
+        int len = temperatures.length;
+        int[] ans = new int[len];
+        Deque<Integer> stack = new ArrayDeque<>();
+        for (int i = 0; i < len; i++) {
             int temperature = temperatures[i];
             while (!stack.isEmpty() && temperature > temperatures[stack.peek()]) {
                 int prevIndex = stack.pop();

@@ -22,7 +22,7 @@ class Solution {
         for (int i = 0; i < length; i++) {
             last[s.charAt(i) - 'a'] = i;
         }
-        List<Integer> partition = new ArrayList<Integer>();
+        List<Integer> partition = new ArrayList<>();
         int start = 0, end = 0;
         for (int i = 0; i < length; i++) {
             end = Math.max(end, last[s.charAt(i) - 'a']);

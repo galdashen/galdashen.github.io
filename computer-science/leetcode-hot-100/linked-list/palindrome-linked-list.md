@@ -6,34 +6,24 @@ sidebar_position: 3
 
 [原题链接](https://leetcode.cn/problems/palindrome-linked-list/description/?envType=study-plan-v2&envId=top-100-liked)
 
-给你一个单链表的头节点 `head`，请你判断该链表是否为回文链表。如果是，返回 `true`；否则，返回 `false`。
+判断链表是否为回文链表。
 
-### 方法一：将值复制到数组中后用双指针法
+### 方法一：递归
 
-开数组列表。
+设置一个外部指针 `p`，先递进到链表尾，回归时对比该层和 `p` 数值是否相等。
 
 ```java title="Java"
 class Solution {
+    private ListNode p;
     public boolean isPalindrome(ListNode head) {
-        List<Integer> vals = new ArrayList<Integer>();
-
-        // 将链表的值复制到数组中
-        ListNode currentNode = head;
-        while (currentNode != null) {
-            vals.add(currentNode.val);
-            currentNode = currentNode.next;
-        }
-
-        // 使用双指针判断是否回文
-        int front = 0;
-        int back = vals.size() - 1;
-        while (front < back) {
-            if (!vals.get(front).equals(vals.get(back))) {
-                return false;
-            }
-            front++;
-            back--;
-        }
+        p = head;
+        return check(head);
+    }
+    private boolean check(ListNode head) {
+        if (head == null) return true;
+        if (!check(head.next)) return false;
+        if (head.val != p.val) return false;
+        p = p.next;
         return true;
     }
 }
@@ -43,41 +33,9 @@ class Solution {
 
 空间复杂度：$O(n)$。
 
-### 方法二：递归
+### 方法二：快慢指针
 
-设置一个外部指针 `frontPointer`。递归时，先递推到链表尾，回归时对比该层和 `frontPointer` 数值是否相等，不等就往上层返回 `false` ，相等就 `frontPointer` 往后走并往上层返回 `true`。
-
-```java title="Java"
-class Solution {
-    private ListNode frontPointer;
-
-    private boolean recursivelyCheck(ListNode currentNode) {
-        if (currentNode != null) {
-            if (!recursivelyCheck(currentNode.next)) {
-                return false;
-            }
-            if (currentNode.val != frontPointer.val) {
-                return false;
-            }
-            frontPointer = frontPointer.next;
-        }
-        return true;
-    }
-
-    public boolean isPalindrome(ListNode head) {
-        frontPointer = head;
-        return recursivelyCheck(head);
-    }
-}
-```
-
-时间复杂度：$O(n)$。
-
-空间复杂度：$O(n)$。
-
-### 方法三：快慢指针
-
-1. 找到前半部分链表的尾节点。
+1. 将链表平分为两半。
 2. 反转后半部分链表。
 3. 判断是否回文。
 4. 恢复链表。
@@ -86,51 +44,33 @@ class Solution {
 ```java title="Java"
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        if (head == null) {
-            return true;
+        ListNode slow = head, fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
-
-        // 找到前半部分链表的尾节点并反转后半部分链表
-        ListNode firstHalfEnd = endOfFirstHalf(head);
-        ListNode secondHalfStart = reverseList(firstHalfEnd.next);
-
-        // 判断是否回文
+        ListNode secondHead = reverseList(slow.next);
         ListNode p1 = head;
-        ListNode p2 = secondHalfStart;
+        ListNode p2 = secondHead;
         boolean result = true;
         while (result && p2 != null) {
-            if (p1.val != p2.val) {
-                result = false;
-            }
+            if (p1.val != p2.val) result = false;
             p1 = p1.next;
             p2 = p2.next;
         }
-
-        // 还原链表并返回结果
-        firstHalfEnd.next = reverseList(secondHalfStart);
+        slow.next = reverseList(secondHead);
         return result;
     }
-
     private ListNode reverseList(ListNode head) {
         ListNode prev = null;
         ListNode curr = head;
         while (curr != null) {
-            ListNode nextTemp = curr.next;
+            ListNode temp = curr.next;
             curr.next = prev;
             prev = curr;
-            curr = nextTemp;
+            curr = temp;
         }
         return prev;
-    }
-
-    private ListNode endOfFirstHalf(ListNode head) {
-        ListNode fast = head;
-        ListNode slow = head;
-        while (fast.next != null && fast.next.next != null) {
-            fast = fast.next.next;
-            slow = slow.next;
-        }
-        return slow;
     }
 }
 ```
