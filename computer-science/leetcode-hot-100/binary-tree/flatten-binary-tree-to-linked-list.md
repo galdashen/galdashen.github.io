@@ -13,7 +13,7 @@ sidebar_position: 11
 
 ### 解法：寻找前驱节点
 
-右子树拼接到左子树右下方，不会改变中序顺序。
+右子树拼接到左子树右下方，不会改变先序顺序。
 
 ```java title="Java"
 class Solution {
